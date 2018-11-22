@@ -1,0 +1,172 @@
+/* Font imports */
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Antic+Slab');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Rancho');
+@import url('https://fonts.googleapis.com/css?family=Sniglet');
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    margin:0;
+    padding:0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    
+}
+
+/* helper-classess */
+.row{
+    display: flex;
+}
+
+.column-25{
+    flex: 25%;
+}
+
+.column-50{
+    flex: 50%;
+}
+
+.column-75{
+    flex: 75%;
+}
+
+
+
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* End of helper classes */
+
+#main{
+    width: 100vw;
+    height: 100vh;
+     background: #3393b1; 
+    background-size:cover;
+    background-position: top;
+    background-image: linear-gradient( #2d99b9,#ffffff86), url("./assets/img/note1.jpg");
+}
+
+
+
+.container{
+    max-width: 90%;
+    margin:0 auto;
+}
+
+header{
+    height: 60px;
+    background-color: rgb(39, 39, 39);
+}
+
+ul{
+    float: right;
+}
+
+li{
+    display: inline-block;
+}
+
+header a{
+    line-height: 60px;
+    padding-right:50px;
+    color: #fff;
+    text-decoration: none;
+}
+
+header span{
+    line-height: 60px;
+    color:#fff;
+}
+
+
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 14px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border:none;
+    font-family: 'Ubuntu', sans-serif;
+    background: #fafafa;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2)
+}
+
+
+label{
+    border-radius: 2px;
+    font-weight:600;
+    color: rgb(46, 46, 46);
+    font-size:1.2rem;
+    background:rgba(228, 228, 228, 0.432);
+    padding:10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2)
+}
+
+.form-container{
+    width: 60%;
+    padding: 30px;
+    margin:0px auto 0 auto;
+}
+
+.form-container h4{
+    margin:30px auto;
+    text-align: center;
+    font-size: 1.4rem;
+    background:rgba(228, 228, 228, 0.342);
+    padding:10px;
+}
+
+/* Button styles */
+.btn {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-size: 1.6rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,.15)
+}
+
+.btn-dark{
+    background-color: rgb(39, 39, 39);
+}
+
+/* End of Button style */
+
+
+.left-heading{
+
+    font-size: 2rem;
+}
+
+.left-heading{
+    font-size: 6rem;
+    margin: 0;
+    color: #000;
+    letter-spacing: 0.1rem;
+    background:rgba(228, 228, 228, 0.432);
+    padding:10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.5);
+    border-bottom: 5px solid #2d99b9; 
+}
+
+
