@@ -1,0 +1,233 @@
+/* Font imports */
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* helper-classess */
+.row {
+  display: flex;
+  width: 100%;
+  position: relative;
+  top: 100px;
+}
+
+.column-25 {
+  flex: 25%;
+}
+
+.column-50 {
+  flex: 50%;
+}
+
+.column-75 {
+  flex: 75%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* End of helper classes */
+
+#main {
+  min-height: 100vh;
+  background: #b3b7b9;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(#ecececec, #ffffffd2),
+    url("/assets/img/mountain.jpg");
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  height: 60px;
+  background-color: rgb(39, 39, 39);
+}
+
+ul.nav-items {
+  float: right;
+}
+
+.nav-items li {
+  display: inline-block;
+}
+
+.nav-items a {
+  line-height: 30px;
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+header span {
+  line-height: 60px;
+  color: #fff;
+}
+/* End of Header Style */
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 14px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  font-family: "Ubuntu", sans-serif;
+  background: #fafafa;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(131, 131, 131);
+}
+
+/* Button styles */
+.btn {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 1.6rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-dark {
+  background-color: rgb(39, 39, 39);
+}
+
+/* End of Button style */
+
+label {
+  border-radius: 2px;
+  color: #fff;
+  font-size: 1.4rem;
+  background: #c07079;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Register */
+.form-container {
+  width: 80%;
+  margin: 20px;
+  padding: 15px;
+}
+
+.form-container h4 {
+  margin: 30px auto;
+  text-align: center;
+  font-size: 1.4rem;
+  background: rgb(218, 218, 218);
+  padding: 10px;
+}
+
+.left-heading {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+
+.left-heading {
+  font-size: 6rem;
+  margin: 0;
+  padding: 0;
+  color: #c07079;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  margin-left: -42px;
+}
+
+.left-heading-sub {
+  font-size: 2.3rem;
+}
+
+/* End of Register */
+
+/* @Media */
+@media (max-width: 1050px) {
+  .row {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .form-container {
+    width: 63%;
+    margin: 20px auto;
+  }
+
+  .column-50 {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .flex-column {
+    position: relative;
+    top: 40px;
+  }
+
+  .left-heading {
+    margin: 0;
+    font-size: 4rem;
+  }
+  .left-heading-sub {
+    font-size: 2.1rem;
+    text-align: center;
+  }
+
+  #main {
+    height: 100%;
+    background: #b3b7b9;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(#ecececec, #ffffffd2),
+      url("./assets/img/mountain.jpeg");
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-items {
+    font-size: 1.25rem;
+  }
+
+  .nav-items a {
+    padding: 0;
+    margin: 0 7px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .row {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .form-container {
+    width: 83%;
+    margin: 20px auto;
+  }
+}
