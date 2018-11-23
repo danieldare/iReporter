@@ -1,0 +1,420 @@
+/* Font imports */
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background: rgb(243, 243, 243);
+}
+
+.container {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  height: 60px;
+  background-color: rgb(39, 39, 39);
+}
+
+ul.nav-items {
+  float: right;
+}
+
+.nav-items li {
+  display: inline-block;
+}
+
+.nav-items a {
+  line-height: 30px;
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+header span {
+  line-height: 60px;
+  color: #fff;
+}
+/* End of Header Style */
+
+/* helper classes */
+
+.row {
+  display: flex;
+}
+
+.column-20 {
+  flex: 16.66%;
+}
+
+.column-25 {
+  flex: 25%;
+}
+
+.column-50 {
+  flex: 50%;
+}
+
+.column-75 {
+  flex: 75%;
+}
+
+.float-r {
+  float: right;
+}
+
+#bg-img {
+  background-image: linear-gradient(
+      rgba(247, 247, 247, 0.726),
+      rgba(218, 218, 218, 0.938)
+    ),
+    url("/img/mountain.jpg");
+  min-height: 100vh;
+  background-size: cover;
+}
+
+/* Card */
+.card {
+  border-radius: 2px;
+  background-color: #fafafa;
+  height: 420px;
+  border: 1px solid rgb(51, 50, 50);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
+  width: 380px;
+  margin: 30px;
+  overflow: hidden;
+  transition: transform 1s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  transform: scale(1.02);
+}
+
+.card-title {
+  position: relative;
+  z-index: 3;
+  top: 40%;
+  font-weight: 600;
+  font-size: 3.2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-title p {
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
+.card-img {
+  background-image: url("/img/bribe.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 58%;
+  overflow: hidden;
+  display: block;
+  opacity: 0.8;
+}
+
+.card-second-img {
+  background-image: url("/img/bribe4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 58%;
+  display: block;
+  opacity: 0.9;
+  margin: 0;
+  padding: 0;
+}
+
+.card-img,
+.card-second-img {
+  transition: transform 1s;
+  cursor: pointer;
+}
+
+.card-img:hover,
+.card-second-img:hover {
+  transform: scale(1.02);
+}
+
+.card-body {
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.mt-1 {
+  margin-top: 10px;
+}
+.mt-2 {
+  margin-top: 20px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+/* End of Card */
+.flex-row {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.main-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 0%;
+}
+
+.user-info {
+  background: rgba(214, 214, 214, 0.836);
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+.user-info2 {
+  padding: 12px;
+  color: #c07079;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 2.5rem;
+  display: inline-block;
+  margin: 0;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.left-head {
+  font-size: 2.7rem;
+  font-weight: 600;
+  color: #485f72;
+}
+
+.left-head span {
+  color: #c07079;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.btn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #425a6d;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 2px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.btn-brown {
+  background: #947c88;
+}
+
+button:hover,
+a:hover {
+  opacity: 0.7;
+}
+
+footer {
+  height: 40px;
+  background: #272727;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+.link {
+  background: #425a6d;
+  display: inline-block;
+  position: relative;
+  left: 31px;
+  padding: 10px;
+  width: 380px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.link2 {
+  background: #947c88;
+  display: inline-block;
+  position: relative;
+  left: 31px;
+  padding: 10px;
+  width: 380px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* @media queries */
+@media (max-width: 1290px) {
+  .left-head {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #485f72;
+    position: absolute;
+    top: 138px;
+    text-align: center;
+  }
+
+  .card {
+    height: 400px;
+    width: 360px;
+    position: relative;
+    top: 65px;
+  }
+
+  .link,
+  .link2 {
+    top: 65px;
+    width: 360px;
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-items {
+    font-size: 1.25rem;
+  }
+
+  .nav-items a {
+    padding: 0;
+    margin: 0 7px;
+  }
+}
+
+@media (max-width: 867px) {
+  .left-head {
+    left: 30%;
+  }
+
+  .card {
+    height: 432px;
+    width: 300px;
+    position: relative;
+    top: 65px;
+    margin: 30px auto;
+  }
+
+  .link,
+  .link2 {
+    top: 65px;
+    left: 0;
+    width: 300px;
+  }
+
+  .link2 {
+    margin-bottom: 80px;
+  }
+
+  .main-section {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #bg-img {
+    max-height: 100%;
+    background-size: cover;
+    background-repeat: repeat;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-head {
+    left: 21%;
+  }
+
+  .card {
+    height: 432px;
+    width: 300px;
+    position: relative;
+    top: 65px;
+    margin: 30px auto;
+  }
+
+  .link,
+  .link2 {
+    top: 65px;
+    left: 0;
+    width: 300px;
+  }
+
+  .link2 {
+    margin-bottom: 80px;
+  }
+
+  .main-section {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #bg-img {
+    max-height: 100%;
+    background-size: cover;
+    background-repeat: repeat;
+  }
+}
+
+@media (max-width: 350px) {
+  .left-head {
+    left: 17%;
+    font-size: 1.6rem;
+  }
+
+  .link,
+  .link2 {
+    top: 65px;
+    left: 0;
+    width: 241px;
+  }
+
+  .card {
+    height: 429px;
+    width: 241px;
+    position: relative;
+  }
+}
