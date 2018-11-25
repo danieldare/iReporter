@@ -11,18 +11,17 @@
       media="screen"
       href="assets/css/homepage-style.css"
     />
-    <script src="assets/js/#"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/header.css" />
   </head>
   <body>
     <header>
-      <div class="container">
-        <span>iReporter</span>
-        <ul class="nav-items">
-          <li><a href="ui/login.html">Login</a></li>
-          <li><a href="ui/register.html">Register</a></li>
-        </ul>
-      </div>
-    </header>
+      <span>iReporter</span>
+      <span class="bar" id="tooglebar">&#9776</span>
+      <ul class="nav-items show-items " >
+        <li><a href="/ui/login.html">Login</a></li>
+        <li><a href="ui/register.html">Register</a></li>
+      </ul>
+  </header>
 
     <main class="main-content">
       <div class="container">
@@ -37,6 +36,7 @@
           ><a href="ui/register.html" class="btn-sm btn-light">Register</a>
         </div>
       </div>
+      <script src="assets/js/header.js"></script>
     </main>
   </body>
 </html>

@@ -27,16 +27,11 @@ body {
 /* Header */
 header {
   height: 60px;
-  width: 100%;
-  display: block;
   background-color: rgb(39, 39, 39);
 }
 
 ul.nav-items {
   float: right;
-  box-sizing: border-box;
-  margin: 0;
-  transition: all 300ms ease-in-out;
 }
 
 .nav-items li {
@@ -44,8 +39,8 @@ ul.nav-items {
 }
 
 .nav-items a {
-  line-height: 60px;
-  padding: 0 30px;
+  line-height: 30px;
+  padding: 20px;
   color: #fff;
   text-decoration: none;
 }
@@ -53,15 +48,14 @@ ul.nav-items {
 header span {
   line-height: 60px;
   color: #fff;
-  padding: 0 30px;
 }
 
 #bg-img {
   background-image: linear-gradient(
-      rgba(247, 247, 247, 0.884),
-      rgba(218, 218, 218, 0.836)
+      rgba(235, 235, 235, 0.774),
+      rgba(218, 218, 218, 0.938)
     ),
-    url("/assets/img/mountain.jpg");
+    url("../img/mountain.jpg");
   min-height: 100vh;
   background-size: cover;
 }
@@ -69,10 +63,10 @@ header span {
 .card-sm {
   border-radius: 2px;
   background-color: #fafafa;
-  height: 400px;
+  height: 300px;
   border: 1px solid rgb(51, 50, 50);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
-  width: 315px;
+  width: 295px;
   margin: 30px;
   overflow: hidden;
   transition: transform 1s ease-in-out;
@@ -97,7 +91,7 @@ header span {
 }
 
 .card-img {
-  background-image: url("/assets/img/bribe.jpg");
+  background-image: url("../img/bribe.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -109,7 +103,7 @@ header span {
 }
 
 .card-second-img {
-  background-image: url("/assets/img/bribe4.jpg");
+  background-image: url("../img/bribe4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -156,7 +150,7 @@ header span {
 
 .user-info2 {
   padding: 12px;
-  color: #c07079;
+  color: #cf7e88;
   border-radius: 2px;
   font-weight: 600;
   font-size: 2.5rem;
@@ -170,7 +164,7 @@ header span {
 #mytable {
   border-collapse: collapse;
   width: 60%;
-  margin: 30px;
+  margin: 30px auto;
   font-size: 1.5rem;
 }
 
@@ -277,7 +271,7 @@ footer {
 }
 
 .form-container {
-  width: 50%;
+  width: 67%;
   padding: 30px;
   margin: 0px auto 40px auto;
 }
@@ -285,12 +279,17 @@ footer {
 .form-container h4 {
   margin: 30px auto;
   text-align: center;
-  font-size: 1.7rem;
-  background-color: rgb(255, 255, 255);
+  font-size: 1.6rem;
+  background-color: #4c606e;
   padding: 10px;
-  border: 2px solid rgb(20, 130, 194);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.text-md {
+  font-size: 1.7rem;
 }
 
 input[type="text"],
@@ -302,6 +301,7 @@ input[type="email"] {
   display: inline-block;
   border: 1px solid #1482c2;
   font-family: "Ubuntu", sans-serif;
+  /* background: #fafafa; */
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
@@ -338,146 +338,49 @@ label {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-.bar {
-  color: #fff;
-  float: right;
-  display: none;
-  cursor: pointer;
+@media (max-width: 1020px) {
+  .form-container {
+    padding: 0;
+    padding-bottom: 90px;
+  }
 }
 
-/* @Media */
-@media (max-width: 1220px) {
-  .row {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
-  .card-sm {
-    width: 41%;
-  }
-
+@media (max-width: 768px) {
   #mytable {
-    border-collapse: collapse;
-    width: 60%;
-    margin: 30px auto;
-    font-size: 1.5rem;
+    width: 90%;
   }
 }
 
 @media (max-width: 800px) {
-  header {
-    transition: all 300ms ease-in-out;
+  .spinner {
+    width: 50%;
   }
 
-  header ul {
-    padding: 0;
-    transition: all 300ms ease-in-out;
-  }
-
-  .nav-items {
-    font-size: 1.6rem;
+  #mytable {
     width: 100%;
   }
-
-  .show-items {
-    display: none;
-    transition: all 300ms ease-in-out;
-  }
-
-  .nav-items li {
-    transition: all 300ms ease-in;
-    text-align: center;
-    display: block;
+  .nav-items {
+    font-size: 1.25rem;
   }
 
   .nav-items a {
-    display: block;
     padding: 0;
-    transition: all 300ms ease-in-out;
-    background-color: #384753;
-    border-bottom: 1px solid rgb(255, 255, 255);
+    margin: 0 7px;
   }
 
-  .bar {
-    color: #fff;
-    float: right;
-    display: block;
+  .form-container {
+    width: 100%;
   }
 }
 
-@media (max-width: 800px) {
-  .row {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+@media (max-width: 480px) {
+  .action-btn {
+    padding: 3px 10px;
+    font-size: 1.3rem;
   }
 
-  .card-sm {
-    width: 35%;
-    margin: 20px auto;
-  }
-
-  #mytable {
-    border-collapse: collapse;
-    width: 80%;
-    margin: 30px auto;
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 700px) {
-  .row {
-    display: block;
-    width: 100%;
-  }
-
-  .card-sm {
-    width: 60%;
-    margin: 49px auto;
-  }
-
-  #mytable {
-    border-collapse: collapse;
-    width: 80%;
-    margin: 30px auto;
-    font-size: 1.5rem;
-    margin-bottom: 80px;
-  }
-
-  #bg-img {
-    background-image: none;
-    background: rgb(231, 231, 231);
-    min-height: 0;
-    height: 100%;
-    background-size: cover;
-  }
-}
-
-@media (max-width: 400px) {
-  .row {
-    display: block;
-    width: 100%;
-  }
-
-  .card-sm {
-    width: 82%;
-    margin: 49px auto;
-  }
-
-  #mytable {
-    border-collapse: collapse;
-    width: 80%;
-    margin: 30px auto;
-    font-size: 1.5rem;
-    margin-bottom: 80px;
-  }
-
-  #bg-img {
-    background-image: none;
-    background: rgb(231, 231, 231);
-    min-height: 0;
-    height: 100%;
-    background-size: cover;
+  #mytable td,
+  #mytable th {
+    padding: 9px;
   }
 }

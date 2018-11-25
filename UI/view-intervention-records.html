@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>View Intervention Records</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/view-intervention-records-style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/view-intervention-records-style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/header.css" />
   </head>
   <body>
     <header>
-      <div class="container">
-        <span>iReporter</span>
-        <ul class="nav-items">
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="#">Logout</a></li>
-        </ul>
-      </div>
-    </header>
+      <span><a href="../index.html">iReporter</a></span>
+      <span class="bar" id="tooglebar">&#9776</span>
+      <ul class="nav-items show-items " >
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+  </header>
     <main id="bg-img">
       <div class="container">
         <span class="user-info2">Intervention Records</span><br />
@@ -46,7 +46,7 @@
          
         </div>
         <div class="row">
-          <img src="/assets/img/spinner.gif"  class="no-spinner spinner"/>
+          <img src="assets/img/spinner.gif"  class="no-spinner spinner"/>
           <div class="edit-form form-container">
             <h4>Edit Intervention record</h4>
 
@@ -67,6 +67,7 @@
       </div>
     </main>
     <footer>copyright &copy; 2018. All rights reserved.</footer>
-    <script src="/assets/js/view-intervention-records.js"></script>
+    <script src="assets/js/view-intervention-records.js"></script>
+    <script src="assets/js/header.js"></script>
   </body>
 </html>

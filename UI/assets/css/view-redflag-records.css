@@ -55,7 +55,7 @@ header span {
       rgba(255, 255, 255, 0.897),
       rgba(218, 218, 218, 0.829)
     ),
-    url("/assets/img/mountain.jpg");
+    url("../img/mountain.jpg");
   min-height: 100vh;
   background-size: cover;
 }
@@ -91,7 +91,7 @@ header span {
 }
 
 .card-img {
-  background-image: url("/img/bribe.jpg");
+  background-image: url("../img/bribe.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -103,7 +103,7 @@ header span {
 }
 
 .card-second-img {
-  background-image: url("/img/bribe4.jpg");
+  background-image: url("../img/bribe4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -271,7 +271,7 @@ footer {
 }
 
 .form-container {
-  width: 50%;
+  width: 67%;
   padding: 30px;
   margin: 0px auto 40px auto;
 }
@@ -338,7 +338,22 @@ label {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 1020px) {
+  .form-container {
+    padding: 0;
+    padding-bottom: 90px;
+  }
+}
+
 @media (max-width: 800px) {
+  .spinner {
+    width: 50%;
+  }
+
+  #mytable {
+    width: 100%;
+  }
+
   .nav-items {
     font-size: 1.25rem;
   }
@@ -347,13 +362,13 @@ label {
     padding: 0;
     margin: 0 7px;
   }
+
+  .form-container {
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-  #mytable {
-    width: 97%;
-  }
-
   .action-btn {
     padding: 3px 10px;
     font-size: 1.3rem;

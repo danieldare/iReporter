@@ -9,19 +9,19 @@
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="/assets/css/login-style.css"
+      href="assets/css/login-style.css"
     />
+    <link rel="stylesheet" href="assets/css/header.css" />
   </head>
   <body>
     <header>
-      <div class="container">
-        <span>iReporter</span>
-        <ul class="nav-items">
-          <li><a href="ui/login.html">Login</a></li>
-          <li><a href="ui/register.html">Register</a></li>
-        </ul>
-      </div>
-    </header>
+      <span><a href="../index.html">iReporter</a></span>
+      <span class="bar" id="tooglebar">&#9776</span>
+      <ul class="nav-items show-items " >
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+  </header>
     <main id="main">
       <div class="container">
         <div class="row">
@@ -35,7 +35,7 @@
           <div class="column-50">
             <div class="form-container">
               <h4>Kindly Login</h4>
-              <form action="ui/dashboard.html">
+              <form action="dashboard.html">
                 <label for="email">Email</label>
                 <input type="email" placeholder="example@email.com" />
 
@@ -49,5 +49,7 @@
         </div>
       </div>
     </main>
+    <footer>copyright &copy; 2018. All rights reserved.</footer>
+    <script src="assets/js/header.js"></script>
   </body>
 </html>

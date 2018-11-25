@@ -27,11 +27,16 @@ body {
 /* Header */
 header {
   height: 60px;
+  width: 100%;
+  display: block;
   background-color: rgb(39, 39, 39);
 }
 
 ul.nav-items {
   float: right;
+  box-sizing: border-box;
+  margin: 0;
+  transition: all 300ms ease-in-out;
 }
 
 .nav-items li {
@@ -39,8 +44,8 @@ ul.nav-items {
 }
 
 .nav-items a {
-  line-height: 30px;
-  padding: 20px;
+  line-height: 60px;
+  padding: 0 30px;
   color: #fff;
   text-decoration: none;
 }
@@ -48,14 +53,15 @@ ul.nav-items {
 header span {
   line-height: 60px;
   color: #fff;
+  padding: 0 30px;
 }
 
 #bg-img {
   background-image: linear-gradient(
-      rgba(235, 235, 235, 0.911),
-      rgba(218, 218, 218, 0.788)
+      rgba(247, 247, 247, 0.884),
+      rgba(218, 218, 218, 0.836)
     ),
-    url("/assets/img/mountain.jpg");
+    url("../img/mountain.jpg");
   min-height: 100vh;
   background-size: cover;
 }
@@ -63,10 +69,10 @@ header span {
 .card-sm {
   border-radius: 2px;
   background-color: #fafafa;
-  height: 300px;
+  height: 400px;
   border: 1px solid rgb(51, 50, 50);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
-  width: 295px;
+  width: 315px;
   margin: 30px;
   overflow: hidden;
   transition: transform 1s ease-in-out;
@@ -91,7 +97,7 @@ header span {
 }
 
 .card-img {
-  background-image: url("/img/bribe.jpg");
+  background-image: url("../img/bribe.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -103,7 +109,7 @@ header span {
 }
 
 .card-second-img {
-  background-image: url("/img/bribe4.jpg");
+  background-image: url("../img/bribe4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -150,7 +156,7 @@ header span {
 
 .user-info2 {
   padding: 12px;
-  color: #cf7e88;
+  color: #c07079;
   border-radius: 2px;
   font-weight: 600;
   font-size: 2.5rem;
@@ -164,7 +170,7 @@ header span {
 #mytable {
   border-collapse: collapse;
   width: 60%;
-  margin: 30px auto;
+  margin: 30px;
   font-size: 1.5rem;
 }
 
@@ -195,18 +201,6 @@ header span {
 #mytable p {
   background-color: #425868;
   height: 30px;
-}
-
-#mytable select {
-  margin: 0 auto;
-  padding: 7px;
-  text-align-last: center;
-}
-
-#mytable tr {
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
 }
 
 .btn {
@@ -291,17 +285,12 @@ footer {
 .form-container h4 {
   margin: 30px auto;
   text-align: center;
-  font-size: 1.6rem;
-  background-color: #4c606e;
-  padding: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 2px;
-  color: #fff;
-  font-weight: 500;
-}
-
-.text-md {
   font-size: 1.7rem;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border: 2px solid rgb(20, 130, 194);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 }
 
 input[type="text"],
@@ -313,7 +302,6 @@ input[type="email"] {
   display: inline-block;
   border: 1px solid #1482c2;
   font-family: "Ubuntu", sans-serif;
-  /* background: #fafafa; */
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
@@ -350,13 +338,147 @@ label {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
+.bar {
+  color: #fff;
+  float: right;
+  display: none;
+  cursor: pointer;
+}
+
+/* @Media */
+@media (max-width: 1220px) {
+  .row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+  }
+
+  .card-sm {
+    width: 41%;
+  }
+
+  #mytable {
+    border-collapse: collapse;
+    width: 60%;
+    margin: 30px auto;
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 800px) {
+  header {
+    transition: all 300ms ease-in-out;
+  }
+
+  header ul {
+    padding: 0;
+    transition: all 300ms ease-in-out;
+  }
+
   .nav-items {
-    font-size: 1.25rem;
+    font-size: 1.6rem;
+    width: 100%;
+  }
+
+  .show-items {
+    display: none;
+    transition: all 300ms ease-in-out;
+  }
+
+  .nav-items li {
+    transition: all 300ms ease-in;
+    text-align: center;
+    display: block;
   }
 
   .nav-items a {
+    display: block;
     padding: 0;
-    margin: 0 7px;
+    transition: all 300ms ease-in-out;
+    background-color: #384753;
+    border-bottom: 1px solid rgb(255, 255, 255);
+  }
+
+  .bar {
+    color: #fff;
+    float: right;
+    display: block;
+  }
+}
+
+@media (max-width: 800px) {
+  .row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .card-sm {
+    width: 35%;
+    margin: 20px auto;
+  }
+
+  #mytable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 30px auto;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .row {
+    display: block;
+    width: 100%;
+  }
+
+  .card-sm {
+    width: 60%;
+    margin: 49px auto;
+  }
+
+  #mytable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 30px auto;
+    font-size: 1.5rem;
+    margin-bottom: 80px;
+  }
+
+  #bg-img {
+    background-image: none;
+    background: rgb(231, 231, 231);
+    min-height: 0;
+    height: 100%;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 400px) {
+  .row {
+    display: block;
+    width: 100%;
+  }
+
+  .card-sm {
+    width: 82%;
+    margin: 49px auto;
+  }
+
+  #mytable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 30px auto;
+    font-size: 1.5rem;
+    margin-bottom: 80px;
+  }
+
+  #bg-img {
+    background-image: none;
+    background: rgb(231, 231, 231);
+    min-height: 0;
+    height: 100%;
+    background-size: cover;
   }
 }

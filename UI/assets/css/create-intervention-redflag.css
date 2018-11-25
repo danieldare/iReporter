@@ -138,6 +138,7 @@ label {
 .form-container {
   width: 50%;
   padding: 30px;
+  padding-bottom: 100px;
   margin: 0px auto 0 auto;
 }
 
@@ -195,7 +196,7 @@ label {
       rgba(247, 247, 247, 0.784),
       rgba(218, 218, 218, 0.877)
     ),
-    url("/assets/img/mountain.jpg");
+    url("../img/mountain.jpg");
   min-height: 100vh;
   background-size: cover;
 }
@@ -257,9 +258,10 @@ footer {
   font-size: 1.5rem;
 }
 
-@media (max-width: 810px) {
+@media (max-width: 1030px) {
   .form-container {
-    width: 100%;
+    width: 70%;
+    padding-bottom: 100px;
   }
 }
 
@@ -271,5 +273,38 @@ footer {
   .nav-items a {
     padding: 0;
     margin: 0 7px;
+  }
+
+  .form-container {
+    width: 80%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-container a {
+    display: block;
+    width: 150px;
+    margin-top: 12px;
+    margin-bottom: -10px;
+    margin-left: 0;
+  }
+
+  .form-container {
+    width: 90%;
+    padding: 0;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-container {
+    width: 90%;
+    padding: 0;
+    padding-bottom: 100px;
+  }
+
+  .form-container a {
+    margin-left: 0px;
   }
 }

@@ -53,7 +53,7 @@ body {
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(#ecececec, #ffffffd2),
-    url("/assets/img/mountain.jpg");
+    url("../img/mountain.jpg");
 }
 
 .container {
@@ -166,6 +166,18 @@ label {
   font-size: 2.3rem;
 }
 
+footer {
+  height: 40px;
+  background: #272727;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  left: 0;
+  font-size: 1.5rem;
+}
 /* End of Register */
 
 /* @Media */
@@ -173,6 +185,7 @@ label {
   .row {
     display: block;
     margin: 0 auto;
+    top: 0;
   }
 
   .form-container {
@@ -205,7 +218,7 @@ label {
     background-size: cover;
     background-position: center;
     background-image: linear-gradient(#ecececec, #ffffffd2),
-      url("./assets/img/mountain.jpeg");
+      url("../img/mountain.jpg");
   }
 }
 
@@ -222,12 +235,20 @@ label {
 
 @media (max-width: 1050px) {
   .row {
+    position: inherit;
     display: block;
     margin: 0 auto;
+    top: 0;
   }
 
   .form-container {
     width: 83%;
     margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 98%;
   }
 }
