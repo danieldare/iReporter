@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/admin-style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <span>iReporter</span>
+        <ul class="nav-items">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+    <main id="bg-img">
+      <div class="container">
+        <span class="user-info2">Admin</span><br />
+        <small>Welcome, Admin</small>
+        <hr />
+        <div> Filter by <input type="radio" /> under-Investigation  <input type="radio" name="radio-group" /> unresolved  <input type="radio" name="radio-group" /> resolved &nbsp; <button class="action-btn btn-blue" name="radio-group">Filter</button></div>
+         
+        <div class="row"> 
+          
+          
+          <table id="mytable">
+            <tr>
+              <th>Title</th>
+              <th>Users</th>
+              <th>Status</th>
+
+            </tr>
+            <tr>
+              <td>Collapsed bridge in Surulere</td>
+              <td>dodaniel@gmail.com</td>
+              <td><select>
+                <option>under-Investigation</option>
+                <option>resolved</option>
+                <option>rejected</option>
+              </select></td>
+            </tr>
+
+            <tr>
+              <td>Fraud case at mushin hospital</td>
+              <td>segun@yahoo.com</td>
+              <td><select>
+                <option>under-Investigation</option>
+                <option selected>resolved</option>
+                <option>rejected</option>
+              </select></td>
+              
+            </tr>
+            <tr  class="mt-0">
+              <td>Bad Drainage in osapa london</td>
+              <td>david@gmail.com</td>
+              <td><select>
+                <option>under-Investigation</option>
+                <option>resolved</option>
+                <option selected>rejected</option>
+              </select></td>
+            </tr>
+          </table>
+        
+         
+        </div>
+        <div class="row">
+          <img src="../assets/img/spinner.gif"  class="no-spinner spinner"/>
+          <div class="edit-form form-container">
+            <h4>Edit Intervention record</h4>
+
+          <form>
+            <label for="title" class="label-nobg">Title</label>
+            <input type="text" placeholder="add a title" value="Collapsed bridge in Surulere" />
+
+            <label for="description" class="label-nobg">Description</label>
+            <textarea placeholder="Describe the incident" cols="9">Collapsed bridge in Surulere</textarea>
+
+            <input type="file" name="img" accept="image/*" />
+
+            <button class="btn btn-blue btn-md">Update</button>
+          </form>
+        </div>
+        </div>
+        </div>
+      </div>
+    </main>
+    <footer>copyright &copy; 2018. All rights reserved.</footer>
+    <script src="../assets/js/#"></script>
+  </body>
+</html>

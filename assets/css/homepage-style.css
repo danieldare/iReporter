@@ -89,7 +89,8 @@ header span {
       rgba(233, 233, 233, 0.904),
       rgba(199, 199, 199, 0.808)
     ),
-    url("/assets/img/mountain.jpg");
+    url("../img/mountain.jpg");
+
   height: 92vh;
   background-size: cover;
 }
