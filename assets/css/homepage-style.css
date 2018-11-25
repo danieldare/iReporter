@@ -24,33 +24,6 @@ body {
   margin: 0 auto;
 }
 
-/* Header */
-header {
-  height: 60px;
-  background-color: rgb(39, 39, 39);
-}
-
-ul.nav-items {
-  float: right;
-}
-
-.nav-items li {
-  display: inline-block;
-}
-
-.nav-items a {
-  line-height: 30px;
-  padding: 20px;
-  color: #fff;
-  text-decoration: none;
-}
-
-header span {
-  line-height: 60px;
-  color: #fff;
-}
-/* End of Header Style */
-
 /* Button */
 .btn-sm {
   color: white;
@@ -84,12 +57,12 @@ header span {
 /* HomePage */
 
 .main-content {
-  position: relative;
   background-image: linear-gradient(
       rgba(233, 233, 233, 0.904),
       rgba(199, 199, 199, 0.808)
     ),
-    url("/assets/img/mountain.jpg");
+    url("../img/mountain.jpg");
+
   height: 92vh;
   background-size: cover;
 }
@@ -122,16 +95,5 @@ header span {
     padding: 0;
     font-size: 2rem;
     word-spacing: 0em;
-  }
-}
-
-@media (max-width: 800px) {
-  .nav-items {
-    font-size: 1.25rem;
-  }
-
-  .nav-items a {
-    padding: 0;
-    margin: 0 7px;
   }
 }
