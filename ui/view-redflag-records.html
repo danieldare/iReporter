@@ -45,16 +45,26 @@
           <div class="edit-form form-container">
             <h4>Edit Red-Flag record</h4>
 
-          <form>
+            <form
+            action="/view-intervention-records.html"
+            enctype="multipart/form-data"
+          >
             <label for="title" class="label-nobg">Title</label>
-            <input type="text" placeholder="add a title" value="Collapsed bridge in Surulere" />
+            <input type="text" placeholder="add a title" />
 
             <label for="description" class="label-nobg">Description</label>
-            <textarea placeholder="Describe the incident" cols="9">Collapsed bridge in Surulere</textarea>
+            <textarea placeholder="Describe the incident" cols="9"></textarea>
 
+            <label for="title" class="label-nobg"
+              >location(Lat Long Coordinates )
+            </label>
+            <a href="#">Click to get Location</a>
+            <input type="text" placeholder="location of incident" />
+
+            <label> Video/Image Upload </label>
             <input type="file" name="img" accept="image/*" />
 
-            <button class="btn btn-blue btn-md">Update</button>
+            <button class="btn btn-blue btn-md">Submit</button>
           </form>
         </div>
         </div>
