@@ -1,0 +1,251 @@
+/* Font imports */
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@import url("https://fonts.googleapis.com/css?family=Dosis:500");
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* helper-classess */
+.row {
+  display: flex;
+  width: 100%;
+  position: relative;
+  top: 100px;
+}
+
+.column-25 {
+  flex: 25%;
+}
+
+.column-50 {
+  flex: 50%;
+}
+
+.column-75 {
+  flex: 75%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* End of helper classes */
+
+#main {
+  min-height: 100vh;
+  background: #b8b8b8;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(#ecececec, #ffffffd2),
+    url("../img/mountain.jpg");
+  background-repeat: repeat;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  height: 60px;
+  background-color: rgb(39, 39, 39);
+}
+
+ul.nav-items {
+  float: right;
+}
+
+.nav-items li {
+  display: inline-block;
+}
+
+.nav-items a {
+  line-height: 30px;
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+header span {
+  line-height: 60px;
+  color: #fff;
+}
+/* End of Header Style */
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 20px 14px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  font-family: "Ubuntu", sans-serif;
+  background: #fafafa;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(131, 131, 131);
+}
+
+/* Button styles */
+.btn {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 1.6rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-dark {
+  background-color: #394650;
+}
+
+/* End of Button style */
+
+label {
+  border-radius: 2px;
+  color: #fff;
+  font-size: 1.4rem;
+  background: #c07079;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+/* Register */
+.form-container {
+  width: 55%;
+  margin: 20px auto 90px auto;
+  padding: 15px;
+}
+
+.form-container h4 {
+  margin: 30px auto;
+  text-align: center;
+  font-size: 1.4rem;
+  background: rgb(218, 218, 218);
+  padding: 10px;
+}
+
+.left-heading {
+  font-size: 7rem;
+  margin: 0;
+  padding: 0;
+  color: #c07079;
+  letter-spacing: 0.4rem;
+  font-weight: 600;
+  font-family: "Dosis", sans-serif;
+}
+
+.left-heading-sub {
+  font-size: 1.6rem;
+  padding: 10px;
+  margin: 2px 0;
+  background: #394650;
+  color: #fff;
+  border-radius: 5px;
+  letter-spacing: 0.2rem;
+}
+
+footer {
+  height: 40px;
+  background: #272727;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  left: 0;
+  font-size: 1.5rem;
+}
+/* End of Register */
+
+/* @Media */
+@media (max-width: 1050px) {
+  .row {
+    position: inherit;
+    display: block;
+    margin: 0 auto;
+    top: 0;
+  }
+
+  .form-container {
+    width: 83%;
+    margin: 40px auto;
+    padding: 0;
+    padding-bottom: 80px;
+  }
+
+  .column-50 {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .flex-column {
+    position: relative;
+    top: 40px;
+  }
+
+  .left-heading {
+    margin: 0;
+    font-size: 4rem;
+  }
+
+  .left-heading-sub {
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 40px;
+  }
+
+  #main {
+    height: 100%;
+    background: #b3b7b9;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(#ecececec, #ffffffd2),
+      url("../img/mountain.jpg");
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-items {
+    font-size: 1.25rem;
+  }
+
+  .nav-items a {
+    padding: 0;
+    margin: 0 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 98%;
+  }
+}
