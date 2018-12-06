@@ -9,14 +9,15 @@
     <title>Create Intervention Record</title>
   </head>
   <body>
-    <header>
-      <span><a href="../index.html">iReporter</a></span>
-      <span class="bar" id="tooglebar">&#9776</span>
-      <ul class="nav-items show-items " >
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-  </header>
+      <header>
+          <span><a href="index.html">iReporter</a></span>
+          <span class="bar" id="tooglebar">&#9776</span>
+          <ul class="nav-items show-items " >
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="admin.html">Admin</a></li>
+              <li><a href="#">Logout</a></li>
+          </ul>
+      </header>
     <section class="bg-img">
       <div class="container">
         <div class="left-head">
@@ -33,13 +34,13 @@
               action="/view-intervention-records.html"
               enctype="multipart/form-data"
             >
-              <label for="title" class="label-nobg">Title</label>
+              <label for="issue" class="label-nobg">Issue</label>
               <input type="text" placeholder="add a title" />
 
               <label for="description" class="label-nobg">Description</label>
               <textarea placeholder="Describe the incident" cols="9"></textarea>
 
-              <label for="title" class="label-nobg"
+              <label for="location" class="label-nobg"
                 >location(Lat Long Coordinates )
               </label>
               <a href="#">Click to get Location</a>
