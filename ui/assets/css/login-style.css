@@ -1,6 +1,6 @@
 /* Font imports */
 @import url("https://fonts.googleapis.com/css?family=Ubuntu");
-
+@import url("https://fonts.googleapis.com/css?family=Dosis:500");
 * {
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
@@ -22,6 +22,8 @@ body {
 .row {
   display: flex;
   width: 100%;
+  position: relative;
+  top: 100px;
 }
 
 .column-25 {
@@ -46,12 +48,13 @@ body {
 /* End of helper classes */
 
 #main {
-  height: 100vh;
-  background: #b3b7b9;
+  min-height: 100vh;
+  background: #b8b8b8;
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(#ecececec, #ffffffd2),
     url("../img/mountain.jpg");
+  background-repeat: repeat;
 }
 
 .container {
@@ -90,7 +93,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"] {
   width: 100%;
-  padding: 14px;
+  padding: 20px 14px;
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
@@ -116,7 +119,7 @@ input[type="email"] {
 }
 
 .btn-dark {
-  background-color: rgb(39, 39, 39);
+  background-color: #394650;
 }
 
 /* End of Button style */
@@ -130,10 +133,14 @@ label {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
 /* Register */
 .form-container {
-  width: 80%;
-  margin: 20px;
+  width: 55%;
+  margin: 20px auto 90px auto;
   padding: 15px;
 }
 
@@ -146,22 +153,23 @@ label {
 }
 
 .left-heading {
-  font-size: 2rem;
-  letter-spacing: 0.2rem;
-}
-
-.left-heading {
-  font-size: 6rem;
+  font-size: 7rem;
   margin: 0;
   padding: 0;
   color: #c07079;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.4rem;
   font-weight: 600;
-  margin-left: -42px;
+  font-family: "Dosis", sans-serif;
 }
 
 .left-heading-sub {
-  font-size: 2.3rem;
+  font-size: 1.6rem;
+  padding: 10px;
+  margin: 2px 0;
+  background: #394650;
+  color: #fff;
+  border-radius: 5px;
+  letter-spacing: 0.2rem;
 }
 
 footer {
@@ -176,20 +184,22 @@ footer {
   left: 0;
   font-size: 1.5rem;
 }
-
 /* End of Register */
 
 /* @Media */
 @media (max-width: 1050px) {
   .row {
+    position: inherit;
     display: block;
     margin: 0 auto;
-    padding-bottom: 90px;
+    top: 0;
   }
 
   .form-container {
-    width: 63%;
-    margin: 20px auto;
+    width: 83%;
+    margin: 40px auto;
+    padding: 0;
+    padding-bottom: 80px;
   }
 
   .column-50 {
@@ -206,9 +216,11 @@ footer {
     margin: 0;
     font-size: 4rem;
   }
+
   .left-heading-sub {
-    font-size: 2.1rem;
+    font-size: 1.6rem;
     text-align: center;
+    margin: 40px;
   }
 
   #main {
@@ -229,18 +241,6 @@ footer {
   .nav-items a {
     padding: 0;
     margin: 0 7px;
-  }
-}
-
-@media (max-width: 1050px) {
-  .row {
-    display: block;
-    margin: 0 auto;
-  }
-
-  .form-container {
-    width: 83%;
-    margin: 20px auto;
   }
 }
 
