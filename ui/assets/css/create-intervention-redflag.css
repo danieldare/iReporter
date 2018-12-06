@@ -25,32 +25,6 @@ body {
   margin: 0 auto;
 }
 
-/* Header */
-header {
-  height: 60px;
-  background-color: rgb(39, 39, 39);
-}
-
-ul.nav-items {
-  float: right;
-}
-
-.nav-items li {
-  display: inline-block;
-}
-
-.nav-items a {
-  line-height: 30px;
-  padding: 20px;
-  color: #fff;
-  text-decoration: none;
-}
-
-header span {
-  line-height: 60px;
-  color: #fff;
-}
-
 .column-25 {
   flex: 25%;
 }
@@ -72,7 +46,7 @@ header span {
 
 /* End of helper classes */
 .container {
-  max-width: 90%;
+  max-width: 85%;
   margin: 0 auto;
 }
 
