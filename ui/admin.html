@@ -9,14 +9,15 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/header.css" />
   </head>
   <body>
+    
     <header>
-      <span><a href="../index.html">iReporter</a></span>
-      <span class="bar" id="tooglebar">&#9776</span>
-      <ul class="nav-items show-items " >
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-  </header>
+        <span><a href="index.html">iReporter</a></span>
+        <span class="bar" id="tooglebar">&#9776</span>
+        <ul class="nav-items show-items " >
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+    </header>
     <main id="bg-img">
       <div class="container">
         <span class="user-info2">Admin</span><br />
@@ -26,44 +27,48 @@
          
         <div class="row"> 
           
-          
-          <table id="mytable">
-            <tr>
-              <th>Title</th>
-              <th>Users</th>
-              <th>Status</th>
-
-            </tr>
-            <tr>
-              <td>Collapsed bridge in Surulere</td>
-              <td>dodaniel@gmail.com</td>
-              <td><select>
-                <option>under-Investigation</option>
-                <option>resolved</option>
-                <option>rejected</option>
-              </select></td>
-            </tr>
-
-            <tr>
-              <td>Fraud case at mushin hospital</td>
-              <td>segun@yahoo.com</td>
-              <td><select>
-                <option>under-Investigation</option>
-                <option selected>resolved</option>
-                <option>rejected</option>
-              </select></td>
+          <div class="tableme">
+              <table id="mytable">
+                  <tr>
+                    <th>Issue title</th>
+                    <th>Users</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                  <tr>
+                    <td>Collapsed bridge in Surulere</td>
+                    <td>dodaniel@gmail.com</td>
+                    <td><select>
+                      <option>under-Investigation</option>
+                      <option>resolved</option>
+                      <option>rejected</option>
+                    </select></td>
+                    <td><a href="#" class="action-btn btn-blue" >Submit</a></td>
+                  </tr>
+      
+                  <tr>
+                    <td>Fraud case at mushin hospital</td>
+                    <td>segun@yahoo.com</td>
+                    <td><select>
+                      <option>under-Investigation</option>
+                      <option selected>resolved</option>
+                      <option>rejected</option>
+                    </select></td>
+                    <td><a href="#" class="action-btn btn-blue" >Submit</a></td>
+                  </tr>
+                  <tr  class="mt-0">
+                    <td>Bad Drainage in osapa london</td>
+                    <td>david@gmail.com</td>
+                    <td><select>
+                      <option>under-Investigation</option>
+                      <option>resolved</option>
+                      <option selected>rejected</option>
+                    </select></td>
+                    <td><a href="#" class="action-btn btn-blue" >Submit</a></td>
+                  </tr>
+                </table>
               
-            </tr>
-            <tr  class="mt-0">
-              <td>Bad Drainage in osapa london</td>
-              <td>david@gmail.com</td>
-              <td><select>
-                <option>under-Investigation</option>
-                <option>resolved</option>
-                <option selected>rejected</option>
-              </select></td>
-            </tr>
-          </table>
+          </div>
         
          
         </div>
