@@ -38,6 +38,27 @@ ul.nav-items {
   margin: 0;
   transition: all 300ms ease-in-out;
 }
+.title-user {
+  color: #fff;
+}
+
+.title-user small {
+  font-size: 1.4rem;
+  color: #425868;
+  font-weight: 600;
+}
+
+.user-info2 {
+  padding: 12px;
+  color: #c07079;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 3rem;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+}
 
 .nav-items li {
   display: inline-block;
@@ -345,6 +366,23 @@ label {
   cursor: pointer;
 }
 
+.edit-b {
+  /* float: right;s */
+  display: inline-block;
+  width: 8=10%;
+}
+
+.edit-b::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.edit-b::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 /* @Media */
 @media (max-width: 1220px) {
   .row {
