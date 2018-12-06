@@ -24,32 +24,6 @@ body {
   margin: 0 auto;
 }
 
-/* Header */
-header {
-  height: 60px;
-  background-color: rgb(39, 39, 39);
-}
-
-ul.nav-items {
-  float: right;
-}
-
-.nav-items li {
-  display: inline-block;
-}
-
-.nav-items a {
-  line-height: 30px;
-  padding: 20px;
-  color: #fff;
-  text-decoration: none;
-}
-
-header span {
-  line-height: 60px;
-  color: #fff;
-}
-
 #bg-img {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.897),
@@ -146,6 +120,8 @@ header span {
 .row {
   display: flex;
   width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .user-info2 {
@@ -153,48 +129,11 @@ header span {
   color: #c07079;
   border-radius: 2px;
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   display: inline-block;
   margin: 0;
   padding: 0;
   margin-top: 15px;
-}
-
-/* Table */
-#mytable {
-  border-collapse: collapse;
-  width: 60%;
-  margin: 30px auto;
-  font-size: 1.5rem;
-}
-
-#mytable td,
-#mytable th {
-  border: 1px solid #ddd;
-  padding: 7px;
-}
-
-#mytable tr:nth-child(even) {
-  background-color: #c9bbbdd8;
-}
-
-#mytable tr:hover {
-  background-color: rgb(163, 162, 162);
-  color: #fff;
-  cursor: pointer;
-}
-
-#mytable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #425868;
-  color: white;
-}
-
-#mytable p {
-  background-color: #425868;
-  height: 30px;
 }
 
 .btn {
@@ -236,7 +175,7 @@ header span {
 
 footer {
   height: 40px;
-  background: #272727;
+  background: #394650;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -301,7 +240,6 @@ input[type="email"] {
   display: inline-block;
   border: 1px solid #1482c2;
   font-family: "Ubuntu", sans-serif;
-  /* background: #fafafa; */
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
@@ -338,15 +276,6 @@ label {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-.form-container a {
-  background: #4c606e;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-  font-size: 1.4rem;
-  margin-left: 20px;
-}
-
 @media (max-width: 1020px) {
   .form-container {
     padding: 0;
@@ -377,16 +306,6 @@ label {
   }
 }
 
-@media (max-width: 560px) {
-  .form-container a {
-    display: block;
-    width: 150px;
-    margin-top: 12px;
-    margin-bottom: -10px;
-    margin-left: 0;
-  }
-}
-
 @media (max-width: 480px) {
   .action-btn {
     padding: 3px 10px;
@@ -397,4 +316,91 @@ label {
   #mytable th {
     padding: 9px;
   }
+}
+
+.redflag-record {
+  margin: 30px auto;
+  border: 1px solid #272727;
+  padding: 15px 20px;
+  background-image: linear-gradient(#c070799d, #4c606e6b);
+  border-bottom: 6px solid #425868;
+  color: #fff;
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  width: 305px;
+}
+
+.bt {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin: 20px 10px 6px 0;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 1.3rem;
+}
+
+.bt-blue {
+  background: #4c606e;
+  color: #fff;
+}
+
+.bt-red {
+  background: #c07079;
+  color: #fff;
+}
+.redflag-record h4 {
+  border-radius: 3px;
+  position: relative;
+  left: -28px;
+  font-size: 1.5rem;
+  background: #425868;
+  color: #fff;
+  padding: 4px 7px;
+  text-align: center;
+  width: 33%;
+  font-weight: 500;
+}
+
+.redflag-record p {
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin: 0;
+  color: #425868;
+  padding: 5px 8px;
+  /* display: inblock; */
+  width: 70%;
+}
+
+.redflag-record small {
+  position: relative;
+  left: 5px;
+  font-style: italic;
+  background: #4c606e;
+  color: #fff;
+  padding: 5px 15px;
+  margin: 0px 0px 10px 0px;
+  /* display: block; */
+  border-radius: 3px;
+}
+
+#filter {
+  width: 200px;
+  margin: 20px auto;
+  text-align: center;
+  border: 1px solid #131313;
+  display: block;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.title-user {
+  color: #fff;
+}
+
+.title-user small {
+  font-size: 1.4rem;
+  color: #425868;
+  font-weight: 600;
 }
