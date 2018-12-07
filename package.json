@@ -4,10 +4,10 @@
   "description": "iReporter App",
   "main": "./server/app.js",
   "scripts": {
-    "start": "node server/app.js",
+    "start": "node build/app.js",
     "test": "nyc ./node_modules/.bin/mocha  --compilers  js:@babel/register ./server/test/ --timeout 10000 --exit",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "build": "babel server -d build",
+    "build": "babel -d build server",
     "heroku-postbld": "NPM_CONFIG_PRODUCTION=false npm run build"
   },
   "author": "daniel",
