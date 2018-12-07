@@ -4,7 +4,7 @@
   "description": "iReporter App",
   "main": "./server/app.js",
   "scripts": {
-    "start": "babel-core server/app.js",
+    "start": "babel server/app.js",
     "test": "nyc ./node_modules/.bin/mocha  --compilers  js:@babel/register ./server/test/ --timeout 10000 --exit",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "build": "babel server -d build",
