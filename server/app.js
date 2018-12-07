@@ -1,10 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 // Importing route files
-const users = require('./routes/api/users');
-const redflag = require('./routes/api/redflag');
+import users from './routes/api/users';
+import redflag from './routes/api/redflag';
 
 // Init Express App.
 const app = express();

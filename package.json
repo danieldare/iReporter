@@ -4,12 +4,16 @@
   "description": "iReporter App",
   "main": "./server/app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server/app.js",
-    "test": "./node_modules/.bin/mocha  --compilers  js:@babel/register ./server/test/ --timeout 10000 --exit"
+    "start": "node build/app.js",
+    "test": "nyc ./node_modules/.bin/mocha  --compilers  js:@babel/register ./server/test/ --timeout 10000 --exit",
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "build": "babel server -d build",
+    "heroku-postbld": "NPM_CONFIG_PRODUCTION=false npm run build"
   },
   "author": "daniel",
   "license": "ISC",
   "dependencies": {
+    "@babel/node": "^7.2.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "chai-http": "^4.2.0",
@@ -23,7 +27,6 @@
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
-    "@babel/node": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
@@ -41,6 +44,7 @@
     "eslint-plugin-react": "^7.11.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.7",
+    "nyc": "^13.1.0",
     "prettier": "^1.15.2"
   }
 }
