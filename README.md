@@ -61,5 +61,5 @@ You can see a hosted version of the template at [https://danieldare.github.io/iR
 
 ## Author
 
-Daniel Oluwadae
+Daniel Oluwadare
 
