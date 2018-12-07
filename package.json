@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "iReporter App",
-  "main": "./server/app.js",
+  "main": "server/app.js",
   "scripts": {
     "start": "node build/app.js",
     "test": "nyc ./node_modules/.bin/mocha  --compilers  js:@babel/register ./server/test/ --timeout 10000 --exit",
