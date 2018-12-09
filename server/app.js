@@ -36,7 +36,7 @@ app.all('*', (req, res) => {
   res.status(404).json({ message: "Wrong endpoint. Route doesn't Exists " });
 });
 // Init Server
-const port = 5050 || process.env.port;
+const port = process.env.PORT || 5050;
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Server running on port ${port}`);
