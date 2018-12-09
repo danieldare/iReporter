@@ -1,9 +1,10 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
 // Importing route files
-import users from './routes/api/users';
-import redflag from './routes/api/redflag';
+const users = require('./routes/api/users');
+const redflag = require('./routes/api/redflag');
 
 // Init Express App.
 const app = express();
@@ -35,7 +36,7 @@ app.all('*', (req, res) => {
   res.status(404).json({ message: "Wrong endpoint. Route doesn't Exists " });
 });
 // Init Server
-const port = 5020 || process.env.port;
+const port = 5050 || process.env.port;
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Server running on port ${port}`);

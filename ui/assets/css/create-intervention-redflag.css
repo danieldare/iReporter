@@ -1,0 +1,284 @@
+/* Font imports */
+
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background: rgb(243, 243, 243);
+}
+
+.container {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.column-25 {
+  flex: 25%;
+}
+
+.column-50 {
+  flex: 50%;
+}
+
+.column-75 {
+  flex: 75%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* End of helper classes */
+.container {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 14px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: 1px solid #1482c2;
+  font-family: "Ubuntu", sans-serif;
+  /* background: #fafafa; */
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+input[type="file"] {
+  padding: 3px;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  display: inline-block;
+  margin: 0px 0 15px 0;
+  border: 1px solid #1482c2;
+}
+
+textarea {
+  border: 1px solid #1482c2;
+  width: 100%;
+  display: inline-block;
+  font-family: "Ubuntu", sans-serif;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  height: 120px;
+  margin: 5px 0 22px 0;
+  padding: 14px;
+}
+
+label {
+  border-radius: 2px;
+  color: rgb(46, 46, 46);
+  font-size: 1.4rem;
+  background: #4c606e;
+  padding: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+.form-container a {
+  background: #4c606e;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 1.4rem;
+  margin-left: 20px;
+}
+
+.form-container a:hover {
+  opacity: 0.8;
+}
+
+.form-container {
+  width: 50%;
+  padding: 30px;
+  padding-bottom: 100px;
+  margin: 0px auto 0 auto;
+}
+
+.form-container h4 {
+  margin: 30px auto;
+  text-align: center;
+  font-size: 1.6rem;
+  background-color: #4c606e;
+  padding: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.form-container span {
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  margin: 0 7px;
+}
+/* Button styles */
+.btn {
+  color: white;
+  padding: 14px 20px;
+  margin: 1px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 1.6rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-dark {
+  background-color: rgb(39, 39, 39);
+}
+
+.btn-blue {
+  background-color: #4c606e;
+}
+
+.btn-md {
+  width: 100px;
+  padding: 8px 18px;
+}
+
+.mt-6 {
+  margin-top: 60px;
+}
+
+/* End of Button style */
+
+.bg-img {
+  background-image: linear-gradient(
+      rgba(247, 247, 247, 0.784),
+      rgba(218, 218, 218, 0.877)
+    ),
+    url("../img/mountain.jpg");
+  min-height: 100vh;
+  background-size: cover;
+}
+
+.left-heading {
+  font-size: 2rem;
+}
+
+.left-heading {
+  font-size: 6rem;
+  margin: 0;
+  color: #000;
+  letter-spacing: 0.1rem;
+  background: rgba(228, 228, 228, 0.432);
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  border-bottom: 5px solid #2d99b9;
+}
+
+/* Create red flag */
+
+.redflag-header {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  position: relative;
+  top: 10%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-head {
+  font-size: 2.5rem;
+
+  margin: 20px auto 0;
+  width: 100%;
+  display: inline-block;
+  color: rgb(42, 56, 66);
+  text-align: center;
+}
+
+.left-head span {
+  color: #c07079;
+  font-weight: 600;
+}
+
+footer {
+  height: 40px;
+  background: #272727;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1030px) {
+  .form-container {
+    width: 70%;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  .nav-items {
+    font-size: 1.25rem;
+  }
+
+  .nav-items a {
+    padding: 0;
+    margin: 0 7px;
+  }
+
+  .form-container {
+    width: 80%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-container a {
+    display: block;
+    width: 150px;
+    margin-top: 12px;
+    margin-bottom: -10px;
+    margin-left: 0;
+  }
+
+  .form-container {
+    width: 90%;
+    padding: 0;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-container {
+    width: 90%;
+    padding: 0;
+    padding-bottom: 100px;
+  }
+
+  .form-container a {
+    margin-left: 0px;
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/dashboard-styles.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+  </head>
+  <body>
+    
+    
+    <header>
+        <span><a href="index.html">iReporter</a></span>
+        <span class="bar" id="tooglebar">&#9776</span>
+        <ul class="nav-items show-items " >
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </header>
+    <main id="bg-img">
+    <div class="container">
+        <div class="title-user">
+      <span class="user-info2">My Dashboard</span> <br />
+      <small>Welcome, User@gmail.com</small>
+      </div>
+      <hr />
+      <div class="main-section">
+        <p class="left-head">
+          Tell Us About it, <br />
+          <span>We can build a better Nation</span>
+        </p>
+        <div>
+          <div class="card">
+            <div class="card-title"><p>Red Flag</p></div>
+            <div class="card-img"></div>
+            <div class="card-body">
+              <small class="bold">Description:</small>
+              <p class="mt-1">
+                You can tell us about an incident linked to corruption e.g
+                bribery case, fraud. e.t.c
+              </p>
+              <a href="create-redflag.html" class="btn btn-dark mt-1">Create redflag</a>
+            </div>
+          </div>
+          <a href="view-redflag-records.html" class="link btn-dark">View Red-flag Record</a>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="card-title"><p>Intervention</p></div>
+            <div class="card-second-img"></div>
+            <div class="card-body">
+              <small class="bold">Description:</small>
+              <p class="mt-1">
+                A call for a government agency to intervene e.g repair bad road
+                sections, collapsed bridges. e.t.c
+              </p>
+              <a href="create-intervention.html" class="btn btn-brown mt-1">Create Intervention</a>
+            </div>
+          </div>
+          <a href="view-intervention-records.html" class="link2">View Intervention Record</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>copyright &copy; 2018. All rights reserved.</footer>
+
+    <script src="assets/js/header.js"></script>
+  </body>
+</html>

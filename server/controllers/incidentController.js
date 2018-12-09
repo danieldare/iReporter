@@ -5,8 +5,21 @@ import validateRedflagInput from '../validation/red-flags';
 import validateRedflagLocationInput from '../validation/red-flag-location';
 import validateRedflagCommentInput from '../validation/red-flag-comment';
 
+/**
+ * Incident Controller class
+ *
+ * @class IncidentController
+ */
 class IncidentController {
-  // @desc Get red flags Route
+  /**
+   * Get Red flag method
+   *
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns response
+   * @memberof IncidentController
+   */
   static getRedflag(req, res) {
     const errors = {};
     if (incidentDb.length === 0) {
@@ -16,7 +29,15 @@ class IncidentController {
     return res.status(200).json({ status: 200, data: incidentDb });
   }
 
-  // @desc Create a  red flag
+  /**
+   * Create a red flag Method
+   *
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns response
+   * @memberof IncidentController
+   */
   static createRedflag(req, res) {
     // For validation
     const { errors, isValid } = validateRedflagInput(req.body);
@@ -57,7 +78,15 @@ class IncidentController {
     });
   }
 
-  // @desc Get one red flag record
+  /**
+   * Get One Redflag record.
+   *
+   * @static
+   * @param {Object} req
+   * @param {Object} res
+   * @returns response
+   * @memberof IncidentController
+   */
   static getOneRedflag(req, res) {
     const errors = {};
     const { redflagid } = req.params;
@@ -106,7 +135,15 @@ class IncidentController {
     });
   }
 
-  // @desc update the comment
+  /**
+   * Update a red flag Comment
+   *
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns response
+   * @memberof IncidentController
+   */
   static updateComment(req, res) {
     // For validation
     const { errors, isValid } = validateRedflagCommentInput(req.body);
@@ -138,7 +175,15 @@ class IncidentController {
     });
   }
 
-  // @desc delete a specified red-flag record
+  /**
+   * Delete a redflag record.
+   *
+   * @static
+   * @param {object} req
+   * @param {object} res
+   * @returns response
+   * @memberof IncidentController
+   */
   static deleteOneRedflag(req, res) {
     const { redflagid } = req.params;
     const errors = {};

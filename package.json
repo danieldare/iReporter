@@ -2,18 +2,15 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "iReporter App",
-  "main": "server/app.js",
+  "main": "./server/app.js",
   "scripts": {
-    "start": "node build/app.js",
+    "start": "nodemon ./server/app.js  --exec babel-node",
     "test": "nyc ./node_modules/.bin/mocha  --compilers  js:@babel/register ./server/test/ --timeout 10000 --exit",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "build": "babel -d build server",
-    "prestart": "npm run build"
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "author": "daniel",
   "license": "ISC",
   "dependencies": {
-    "@babel/node": "^7.2.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "chai-http": "^4.2.0",
@@ -27,6 +24,7 @@
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
