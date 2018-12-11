@@ -4,6 +4,7 @@ import db from '../db';
 import Helper from './helper';
 // Load Input Validation
 import validateRegisterInput from '../validation/register';
+import validateLoginInput from '../validation/login';
 
 const User = {
   /**
@@ -47,6 +48,37 @@ const User = {
         return res.status(400).json({ message: 'User already exist' });
       }
       return res.status(400).json({ error });
+    }
+  },
+
+  /**
+   * Login
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} user object
+   */
+  async login(req, res) {
+    // For validation
+    const { errors, isValid } = validateLoginInput(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      return res.status(400).json({ errors });
+    }
+
+    const text = 'SELECT * FROM users WHERE email = $1';
+    try {
+      const { rows } = await db.query(text, [req.body.email]);
+      if (!rows[0]) {
+        return res.status(400).json({ message: 'User not Found' });
+      }
+      if (!Helper.comparePassword(rows[0].password, req.body.password)) {
+        return res.status(400).json({ message: 'The credentials you provided is incorrect2' });
+      }
+      const token = Helper.generateToken(rows[0].id);
+      return res.status(200).json({ token, user: rows[0] });
+    } catch (error) {
+      return res.status(400).send(error);
     }
   }
 };
