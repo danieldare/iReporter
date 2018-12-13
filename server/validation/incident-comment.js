@@ -6,8 +6,8 @@ module.exports = function validateRedflagCommentInput(data) {
 
   data.comments = !isEmpty(data.comments) ? data.comments : '';
 
-  if (!validator.isLength(data.comments, { min: 25, max: 500 })) {
-    errors.comments = 'Comments must be between 25 and 500 characters';
+  if (!validator.isLength(data.comments, { min: 5, max: 500 })) {
+    errors.comments = 'Comments must be between 5 and 500 characters';
   }
 
   if (validator.isEmpty(data.comments)) {

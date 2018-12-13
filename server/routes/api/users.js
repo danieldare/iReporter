@@ -10,7 +10,7 @@ router.use(cors());
 // @route POST api/users/register
 // @desc Register user
 // @access Public
-router.post('/register', UserController.create);
+router.post('/signup', UserController.create);
 
 // @route POST api/users/login
 // @desc Login user

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import uuid from 'uuid';
+import jwt from 'jsonwebtoken';
 import db from '../db';
 import Helper from './helper';
 // Load Input Validation
@@ -14,21 +14,19 @@ const User = {
    * @returns {object} reflection object
    */
   async create(req, res) {
-    // // For validation
+    //  For validation
     const { errors, isValid } = validateRegisterInput(req.body);
 
     // Check Validation
     if (!isValid) {
-      return res.status(400).json({ errors });
+      return res.status(400).json({ status: 400, errors });
     }
 
     const hashPassword = Helper.hashPassword(req.body.password);
 
-    const createQuery = `INSERT INTO users(id, firstname, lastname, email, phonenumber, username,  password, registered, isadmin)
-      VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) returning *`;
-
+    const createQuery = `INSERT INTO users(firstname, lastname, email, phonenumber, username,  password, registered, isadmin)
+      VALUES($1, $2, $3, $4, $5, $6, $7, $8) returning *`;
     const values = [
-      uuid(),
       req.body.firstname,
       req.body.lastname,
       req.body.email,
@@ -36,18 +34,23 @@ const User = {
       req.body.username,
       hashPassword,
       moment(new Date()),
-      false
+      req.body.isadmin || false
     ];
 
     try {
       const { rows } = await db.query(createQuery, values);
-      const token = Helper.generateToken(rows[0].id);
-      return res.status(201).json({ token, user: values });
+      const token = Helper.generateToken(
+        rows[0].id,
+        rows[0].isadmin,
+        rows[0].username,
+        rows[0].email
+      );
+      return res.status(201).json({ status: 201, data: [{ token, user: rows[0] }] });
     } catch (error) {
       if (error.routine === '_bt_check_unique') {
-        return res.status(400).json({ message: 'User already exist' });
+        return res.status(400).json({ status: 400, errors: 'User already exist' });
       }
-      return res.status(400).json({ error });
+      return res.status(400).json({ status: 400, errors });
     }
   },
 
@@ -63,22 +66,29 @@ const User = {
 
     // Check Validation
     if (!isValid) {
-      return res.status(400).json({ errors });
+      return res.status(400).json({ status: 400, errors });
     }
 
     const text = 'SELECT * FROM users WHERE email = $1';
     try {
       const { rows } = await db.query(text, [req.body.email]);
       if (!rows[0]) {
-        return res.status(400).json({ message: 'User not Found' });
+        return res.status(400).json({ status: 400, errors: 'User not Found' });
       }
       if (!Helper.comparePassword(rows[0].password, req.body.password)) {
-        return res.status(400).json({ message: 'The credentials you provided is incorrect2' });
+        return res
+          .status(400)
+          .json({ status: 400, errors: 'The credentials you provided are incorrect' });
       }
-      const token = Helper.generateToken(rows[0].id);
-      return res.status(200).json({ token, user: rows[0] });
+      const token = Helper.generateToken(
+        rows[0].id,
+        rows[0].isadmin,
+        rows[0].username,
+        rows[0].email
+      );
+      return res.status(200).json({ status: 200, data: [{ token, user: rows[0] }] });
     } catch (error) {
-      return res.status(400).send(error);
+      return res.status(400).json({ status: 400, errors });
     }
   }
 };
