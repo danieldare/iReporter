@@ -1,10 +1,13 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import swaggerUI from 'swagger-ui-express';
 
 // Importing route files
-const users = require('./routes/api/users');
-const incident = require('./routes/api/index');
+import users from './routes/api/users';
+import incident from './routes/api/index';
+
+import doc from '../swagger.json';
 
 // Init Express App.
 const app = express();
@@ -22,6 +25,9 @@ app.use('/api/v1', incident);
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Welcome to iReporter Landing Page' });
 });
+
+// render swagger UI
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(doc));
 
 // Deals with any route that is not specified in the route folder
 app.all('*', (req, res) => {

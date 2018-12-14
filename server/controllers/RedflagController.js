@@ -92,7 +92,6 @@ const RedflagController = {
         data: [rows[0]]
       });
     } catch (error) {
-      console.log(error);
       return res
         .status(404)
         .send({ status: 404, message: 'An errror just occured! Red-flag record id not Found' });
