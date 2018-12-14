@@ -1,4 +1,5 @@
 import moment from 'moment';
+import jwt from 'jsonwebtoken';
 import db from '../db';
 
 import validateRedflagInput from '../validation/incident';
@@ -53,7 +54,7 @@ const RedflagController = {
     }
   },
   /**
-   * Get All Intervention
+   * Get All Redflag
    * @param {object} req
    * @param {object} res
    * @returns {object}
@@ -74,7 +75,7 @@ const RedflagController = {
     }
   },
   /**
-   * Get one intervention record
+   * Get one redflag record
    * @param {object} req
    * @param {object} res
    * @returns {object}
@@ -92,14 +93,16 @@ const RedflagController = {
       });
     } catch (error) {
       console.log(error);
-      return res.status(500).send({ message: 'An error occured. Try again!!!' });
+      return res
+        .status(404)
+        .send({ status: 404, message: 'An errror just occured! Red-flag record id not Found' });
     }
   },
   /**
-   * Update an intervention location
+   * Update a reflag location
    * @param {object} req
    * @param {object} res
-   * @returns {object} updated intervention reponse
+   * @returns {object} updated redflag reponse
    */
   async updateRedflagLocation(req, res) {
     // For validation
@@ -117,6 +120,12 @@ const RedflagController = {
       if (!rows[0]) {
         return res.status(404).json({ status: 404, errors: 'red-flag record not found' });
       }
+      // Checking for Unauthorized User
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      if (decoded.id !== rows[0].createdby) {
+        return res.status(403).json({ status: 403, errors: 'Not authorized to do this operation' });
+      }
 
       const values = req.body.location || rows[0].location;
       const response = await db.query(updateOneQuery, [values, req.params.redflag_id]);
@@ -125,15 +134,16 @@ const RedflagController = {
         data: [{ id: response.rows[0].id, message: 'Updated red-flag record’s location' }]
       });
     } catch (err) {
-      console.log(err);
-      return res.status(400).send(err);
+      return res
+        .status(404)
+        .send({ status: 404, message: 'An errror just occured! Red-flag record id not Found' });
     }
   },
   /**
-   * Update an intervention comment
+   * Update a redflag comment
    * @param {object} req
    * @param {object} res
-   * @returns {object} intervention reponse
+   * @returns {object} redflag reponse
    */
   async updateRedflagComment(req, res) {
     // For validation
@@ -150,6 +160,12 @@ const RedflagController = {
       if (!rows[0]) {
         return res.status(404).send({ status: 404, errors: 'red-flag record not found' });
       }
+      // Checking for Unauthorized User
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      if (decoded.id !== rows[0].createdby) {
+        return res.status(403).json({ status: 403, errors: 'Not authorized to do this operation' });
+      }
       const values = req.body.comments || rows[0].comments;
       const response = await db.query(updateOneQuery, [values, req.params.redflag_id]);
       return res.status(200).json({
@@ -157,14 +173,16 @@ const RedflagController = {
         data: [{ id: response.rows[0].id, message: 'Updated red-flag record’s comment' }]
       });
     } catch (err) {
-      return res.status(400).send(err);
+      return res
+        .status(404)
+        .send({ status: 404, message: 'An errror just occured! Red-flag record id not Found' });
     }
   },
   /**
-   * Delete An Intervention record
+   * Delete A redflag record
    * @param {object} req
    * @param {object} res
-   * @returns {void} return status code 204
+   * @returns {void} return status code 200
    */
   async delete(req, res) {
     const deleteQuery = 'DELETE FROM incidents WHERE id = $1 AND type = $2 returning *';
@@ -173,12 +191,20 @@ const RedflagController = {
       if (!rows[0]) {
         return res.status(404).json({ message: 'red-flag record not found' });
       }
+      // Checking for Unauthorized Using
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      if (decoded.id !== rows[0].createdby) {
+        return res.status(403).json({ status: 403, errors: 'Not authorized to do this operation' });
+      }
       return res.status(200).json({
         status: 200,
         data: [{ id: rows[0].id, message: 'red-flag record has been deleted' }]
       });
     } catch (error) {
-      return res.status(400).json(error);
+      return res
+        .status(404)
+        .json({ status: 404, message: 'An errror just occured! Red-flag record id not Found' });
     }
   }
 };

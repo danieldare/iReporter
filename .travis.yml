@@ -7,4 +7,6 @@ node_js:
   directories:
     - "node_modules"
 after_success:
+   - npm run coveralls
   - npm run coverage
+  - ./cc-test-reporter after-build -r 2e2b7011d9ac4414a8fa3bd1a19517908acace96f9bdc740af190d239d0bfd05 --exit-code $TRAVIS_TEST_RESULT

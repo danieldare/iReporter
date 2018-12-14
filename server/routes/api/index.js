@@ -50,6 +50,6 @@ router.patch(
   AdminController.updateInterventionStatus
 );
 router.patch('/red-flags/:redflag_id/status', isAdmin, AdminController.updateRedflagStatus);
-router.get('/incidents', Auth.verifyToken, isAdmin, AdminController.getAllIncident);
+router.get('/incidents', Auth.verifyToken, AdminController.getAllIncident);
 
 module.exports = router;
