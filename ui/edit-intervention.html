@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="assets/css/create-intervention-redflag.css" />
-    <link rel="stylesheet" href="assets/css/header.css" />
-    <title>Create Red-flag Record</title>
+    <link rel="stylesheet" href="assets/css/header.css">
+    <title>Create Intervention Record</title>
   </head>
   <body>
-    <header>
-      <span><a href="index.html">iReporter</a></span>
-      <span class="bar" id="tooglebar">&#9776</span>
-      <ul class="nav-items show-items " >
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-  </header>
+      <header>
+          <span><a href="index.html">iReporter</a></span>
+          <span class="bar" id="tooglebar">&#9776</span>
+          <ul class="nav-items show-items " >
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="admin.html">Admin</a></li>
+              <li><a href="#">Logout</a></li>
+          </ul>
+      </header>
     <section class="bg-img">
       <div class="container">
         <div class="left-head">
@@ -26,31 +27,31 @@
         <div class="row">
           <div class="form-container">
             <div class="redflag-header">
-              <h4>Create <span>Red-flag</span> record</h4>
+              <h4>Edit <span>Intervention</span> record</h4>
             </div>
 
             <form
-              action="view-redflag-records.html"
+              action="view-intervention-records.html"
             >
               <label for="issue" class="label-nobg">Issue</label>
-              <input type="text" placeholder="add a title" />
+              <input type="text" placeholder="add a title" value="Poor waste management"/>
 
               <label for="description" class="label-nobg">Description</label>
-              <textarea placeholder="Describe the incident" cols="9"></textarea>
+              <textarea placeholder="Describe the incident" cols="9">Speedy response</textarea>
 
-              <label for="title" class="label-nobg"
-                >location(Lat Long Coordinates)
+              <label for="location" class="label-nobg"
+                >location(Lat Long Coordinates )
               </label>
               <a href="#">Click to get Location</a>
-              <input type="text" placeholder="location of incident" />
+              <input type="text" placeholder="location of incident" value="6.5922139, 3.3427375" />
 
               <label> Image Upload </label>
               <input type="file" name="img" accept="image/*" />
 
               <label> Video Upload </label>
-              <input type="file" name="img" />
+              <input type="file" name="img"  />
 
-              <button class="btn btn-blue btn-md">Submit</button>
+              <button class="btn btn-blue btn-md">Update</button>
             </form>
           </div>
         </div>

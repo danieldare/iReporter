@@ -1,9 +1,9 @@
 /* Font imports */
-@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 * {
   box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 html {
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: "Rajdhani", sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 1.6rem;
   margin: 0;
   padding: 0;
@@ -51,11 +51,8 @@ body {
 }
 
 #bg-img {
-  background-image: linear-gradient(
-      rgba(247, 247, 247, 0.726),
-      rgba(218, 218, 218, 0.938)
-    ),
-    url("../img/mountain.jpg");
+  background-image: linear-gradient(rgba(247, 247, 247, 0.726), rgba(218, 218, 218, 0.938)),
+    url('../img/mountain.jpg');
   min-height: 100vh;
   background-size: cover;
 }
@@ -85,7 +82,7 @@ body {
   top: 40%;
   font-weight: 600;
   font-size: 3.2rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .card-title p {
@@ -97,7 +94,7 @@ body {
 }
 
 .card-img {
-  background-image: url("../img/bribe.jpg");
+  background-image: url('../img/bribe.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -109,7 +106,7 @@ body {
 }
 
 .card-second-img {
-  background-image: url("../img/bribe4.jpg");
+  background-image: url('../img/bribe4.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -273,6 +270,13 @@ footer {
 
 /* @media queries */
 @media (max-width: 1290px) {
+  .bb {
+    font-size: 1.5rem;
+    width: 50%;
+    display: block;
+    margin: 15px auto;
+  }
+
   .left-head {
     font-size: 3rem;
     font-weight: 600;
@@ -423,4 +427,12 @@ footer {
     width: 241px;
     position: relative;
   }
+}
+
+.bb {
+  font-size: 1.5rem;
+
+  /* width: 50%; */
+  display: block;
+  margin: 15px auto;
 }

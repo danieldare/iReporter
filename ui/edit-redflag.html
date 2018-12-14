@@ -26,23 +26,23 @@
         <div class="row">
           <div class="form-container">
             <div class="redflag-header">
-              <h4>Create <span>Red-flag</span> record</h4>
+              <h4>Edit <span>Red-flag</span> record</h4>
             </div>
 
             <form
               action="view-redflag-records.html"
             >
               <label for="issue" class="label-nobg">Issue</label>
-              <input type="text" placeholder="add a title" />
+              <input type="text" placeholder="add a title" value="Police extortion at check point" />
 
               <label for="description" class="label-nobg">Description</label>
-              <textarea placeholder="Describe the incident" cols="9"></textarea>
+              <textarea placeholder="Describe the incident" cols="9">Police extortion at check point</textarea>
 
               <label for="title" class="label-nobg"
                 >location(Lat Long Coordinates)
               </label>
               <a href="#">Click to get Location</a>
-              <input type="text" placeholder="location of incident" />
+              <input type="text" placeholder="location of incident" value="6.5922139, 3.3427375" />
 
               <label> Image Upload </label>
               <input type="file" name="img" accept="image/*" />
@@ -50,7 +50,7 @@
               <label> Video Upload </label>
               <input type="file" name="img" />
 
-              <button class="btn btn-blue btn-md">Submit</button>
+              <button class="btn btn-blue btn-md">Update</button>
             </form>
           </div>
         </div>
