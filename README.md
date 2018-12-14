@@ -60,15 +60,9 @@ You can see a hosted version of the template at [https://danieldare.github.io/iR
 
 The API is currently in version 1 (v1) and is hosted at [https://ireporter-full.herokuapp.com](https://ireporter-full.herokuapp.com)
 
-## API Endpoints
+## API Documentation
 
-| Endpoint                                 | Functionality                            |
-| ---------------------------------------- | ---------------------------------------- |
-| GET /red-flags                           | Fetch all red-flags reports              |
-| GET /red-flags/\<red-flag-id>            | Fetch the details of a single red-flag   |
-| PATCH /red-flags/\<red-flag-id>/location | Update the location of a red-flag report |
-| PATCH /red-flags/\<red-flag-id>/comment  | Update the comment of a red-flag report  |
-| DELETE /red-flags/\<red-flag-id>         | Delete a single red-flag                 |
+https://ireporter-full.herokuapp.com/api-docs/
 
 ## Author
 
