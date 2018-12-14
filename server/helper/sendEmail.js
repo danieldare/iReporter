@@ -18,7 +18,7 @@ const sendMail = payload => {
   const output = `
   <div style="font-size:15px; color: salmon; background-color: #f4f4f4; padding:35px; margin:0 auto; display:inline-block; font-family: tahoma;">Hi  ${
     payload.firstname
-  },<p>Your record's status has been changed to <span style="color:white; font-weight:bold; font-size:14px;">${
+  },<p>Your record's status has been changed to <span style="color:green; font-weight:bold; font-size:14px; ">${
     payload.status
   }</span></p>
   

@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import moment from 'moment';
 import db from '../db';
 
@@ -7,7 +8,7 @@ import validateCommentInput from '../validation/incident-comment';
 
 const IncidentController = {
   /**
-   * Create an Incident
+   * Create an Intervention
    * @param {object} req
    * @param {object} res
    * @returns {object} incident object
@@ -47,7 +48,6 @@ const IncidentController = {
         ]
       });
     } catch (error) {
-      console.log(error);
       return res.status(400).send(error);
     }
   },
@@ -90,7 +90,9 @@ const IncidentController = {
         data: [rows[0]]
       });
     } catch (error) {
-      return res.status(400).send(error);
+      return res
+        .status(404)
+        .send({ status: 404, message: 'An errror just occured! Intervention record id not Found' });
     }
   },
   /**
@@ -114,6 +116,13 @@ const IncidentController = {
       if (!rows[0]) {
         return res.status(404).send({ message: 'intervention not found' });
       }
+      // Checking for Unauthorized Using
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      if (decoded.id !== rows[0].createdby) {
+        return res.status(403).json({ status: 403, errors: 'Not authorized to do this operation' });
+      }
+
       const values = req.body.location || rows[0].location;
       const response = await db.query(updateOneQuery, [values, req.params.intervention_id]);
       return res.status(200).json({
@@ -121,7 +130,9 @@ const IncidentController = {
         data: [{ id: response.rows[0].id, message: 'Updated intervention record’s location' }]
       });
     } catch (err) {
-      return res.status(400).send(err);
+      return res
+        .status(404)
+        .send({ status: 404, message: 'An errror just occured! Intervention record id not Found' });
     }
   },
   /**
@@ -145,6 +156,12 @@ const IncidentController = {
       if (!rows[0]) {
         return res.status(404).send({ status: 404, errors: 'intervention not found' });
       }
+      // Checking for Unauthorized User
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      if (decoded.id !== rows[0].createdby) {
+        return res.status(403).json({ status: 403, errors: 'Not authorized to do this operation' });
+      }
       const values = req.body.comments || rows[0].comments;
       const response = await db.query(updateOneQuery, [values, req.params.intervention_id]);
       return res.status(200).json({
@@ -152,7 +169,9 @@ const IncidentController = {
         data: [{ id: response.rows[0].id, message: 'Updated intervention record’s comment' }]
       });
     } catch (err) {
-      return res.status(400).send(err);
+      return res
+        .status(400)
+        .send({ status: 404, message: 'An errror just occured! Intervention record id not Found' });
     }
   },
   /**
@@ -168,12 +187,20 @@ const IncidentController = {
       if (!rows[0]) {
         return res.status(404).json({ message: 'incident not found' });
       }
-      return res.status(204).json({
+      // Checking for Unauthorized Using
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      if (decoded.id !== rows[0].createdby) {
+        return res.status(403).json({ status: 403, errors: 'Not authorized to do this operation' });
+      }
+      return res.status(200).json({
         status: 200,
         data: [{ id: rows[0].id, message: 'intervention record has been deleted' }]
       });
     } catch (error) {
-      return res.status(400).json(error);
+      return res
+        .status(404)
+        .json({ status: 404, message: 'An errror just occured! Intervention record id not Found' });
     }
   }
 };

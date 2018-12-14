@@ -61,7 +61,7 @@ const AdminController = {
       await sendEmail(emailPayload);
       // Sends Sms to User
       sendSms(
-        '2348164933761',
+        `234${user.rows[0].phonenumber.slice(1)}`,
         `Hello ${user.rows[0].firstname},  Your Intervention record status has been updated to ${
           req.body.status
         }`
@@ -71,7 +71,9 @@ const AdminController = {
         data: [{ id: response.rows[0].id, message: 'Updated intervention record’s status' }]
       });
     } catch (err) {
-      return res.status(400).send(err);
+      return res
+        .status(404)
+        .send({ status: 404, message: 'An errror just occured! Intervention record id not Found' });
     }
   },
   /**
@@ -105,15 +107,14 @@ const AdminController = {
 
       const emailPayload = {
         firstname: user.rows[0].firstname,
-        // email: user.rows[0].email,
-        email: 'dodanieloluwadare@gmail.com',
+        email: user.rows[0].email,
         status: req.body.status
       };
       // Sends email to User
       await sendEmail(emailPayload);
       // Sends Sms to User
       sendSms(
-        '2348164933761',
+        `234${user.rows[0].phonenumber.slice(1)}`,
         `Hello ${user.rows[0].firstname},  Your red-flag record status has been updated to ${
           req.body.status
         }`
@@ -124,7 +125,9 @@ const AdminController = {
         data: [{ id: response.rows[0].id, message: 'Updated red-flag record’s status' }]
       });
     } catch (err) {
-      return res.status(400).send(err);
+      return res
+        .status(404)
+        .send({ status: 404, message: 'An errror just occured! Red-flag record id not Found' });
     }
   }
 };
