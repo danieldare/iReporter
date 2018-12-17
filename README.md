@@ -4,6 +4,7 @@ iReporter is an web platform that enables any/every citizen to bring any form of
 
 [![Build Status](https://travis-ci.org/danieldare/iReporter.svg?branch=develop)](https://travis-ci.org/danieldare/iReporter)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3ac393c6fd21317fef4a/maintainability)](https://codeclimate.com/github/danieldare/iReporter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 
 ## Required Features
 
