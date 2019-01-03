@@ -20,6 +20,12 @@ module.exports = function validateRedflagInput(data) {
     errors.location = 'Location field is required';
   }
 
+  if (
+    !/^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/.test(data.location)
+  ) {
+    errors.location = 'Location is invalid';
+  }
+
   if (!validator.isLength(data.title, { min: 2, max: 500 })) {
     errors.title = 'Title must be between 2 and 50 characters';
   }

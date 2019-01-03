@@ -41,7 +41,7 @@ const RedflagController = {
     try {
       const { rows } = await db.query(createQuery, values);
       return res.status(200).json({
-        status: 200,
+        status: 201,
         data: [
           {
             id: rows[0].id,

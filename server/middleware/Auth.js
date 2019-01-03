@@ -13,8 +13,8 @@ const Auth = {
     const token = req.headers['x-access-token'];
     if (!token) {
       return res
-        .status(403)
-        .json({ status: 403, errors: 'Unauthorized!, you have to login first' });
+        .status(401)
+        .json({ status: 401, errors: 'Unauthorized!, you have to login first' });
     }
     try {
       const decoded = await jwt.verify(token, process.env.SECRET);

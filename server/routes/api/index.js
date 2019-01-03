@@ -8,12 +8,8 @@ import AdminController from '../../controllers/AdminController';
 const router = express.Router();
 
 // Intervention
-router.get('/interventions', Auth.verifyToken, interventionController.getAllIntervention);
-router.get(
-  '/interventions/:intervention_id',
-  Auth.verifyToken,
-  interventionController.getOneIntervention
-);
+router.get('/interventions', interventionController.getAllIntervention);
+router.get('/interventions/:intervention_id', interventionController.getOneIntervention);
 router.post('/interventions', Auth.verifyToken, interventionController.create);
 router.patch(
   '/interventions/:intervention_id/location',

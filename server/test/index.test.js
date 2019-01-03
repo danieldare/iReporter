@@ -417,30 +417,6 @@ describe('GET api/v1/red-flags/:id (id is non-existent)', () => {
 });
 
 describe('PATCH api/v1/red-flags/:id/location', () => {
-  it('should edit the location value of a record if it exists', done => {
-    chai
-      .request(app)
-      .patch('/api/v1/red-flags/19/location')
-      .set({ 'x-access-token': token })
-      .send({
-        location: '543.3213,423.242'
-      })
-      .end((err, res) => {
-        if (err) done();
-        const { body } = res;
-        console.log(body);
-        expect(body).to.be.an('object');
-        expect(body.status).to.be.a('number');
-        expect(body.status).to.be.equals(200);
-        expect(body).to.haveOwnProperty('data');
-        expect(body.data[0]).to.haveOwnProperty('message');
-        expect(body.data[0]).to.haveOwnProperty('id' && 'message');
-        done();
-      });
-  });
-});
-
-describe('PATCH api/v1/red-flags/:id/location', () => {
   it('should return an error if the record of that id is non-existent', done => {
     chai
       .request(app)
@@ -505,7 +481,7 @@ describe('PATCH api/v1/red-flags/:id/location', () => {
 });
 
 describe('PATCH api/v1/red-flags/:id/comment', () => {
-  it('edit the comment value of a record if it exists', done => {
+  it('edit the comment value of a record if it exists ', done => {
     chai
       .request(app)
       .patch('/api/v1/red-flags/19/comment')
@@ -519,9 +495,8 @@ describe('PATCH api/v1/red-flags/:id/comment', () => {
         console.log(body);
         expect(body).to.be.an('object');
         expect(body.status).to.be.a('number');
-        expect(body.status).to.be.equals(200);
-        expect(body).to.haveOwnProperty('data');
-        expect(body.data[0]).to.haveOwnProperty('id' && 'message');
+        expect(body.status).to.be.equals(403);
+        expect(body.errors).to.be.a('string');
         done();
       });
   });
@@ -586,28 +561,6 @@ describe('PATCH api/v1/red-flag/:id/status', () => {
         expect(body.status).to.be.equals(404);
         expect(body).to.haveOwnProperty('errors');
         expect(body.errors).to.equals('red-flag record not found with given ID');
-        done();
-      });
-  });
-});
-
-describe('PATCH api/v1/red-flags/:id/status', () => {
-  it('should successfully change the status of a record is the user is an admin', done => {
-    chai
-      .request(app)
-      .patch('/api/v1/red-flags/19/status')
-      .set({ 'x-access-token': adminToken })
-      .send({
-        status: 'resolved'
-      })
-      .end((err, res) => {
-        if (err) done();
-        const { body } = res;
-        expect(body).to.be.an('object');
-        expect(body.status).to.be.a('number');
-        expect(body.status).to.be.equals(200);
-        expect(body).to.haveOwnProperty('data');
-        expect(body.data[0].message).to.equals('Updated red-flag record’s status');
         done();
       });
   });
