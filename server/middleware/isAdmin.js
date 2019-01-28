@@ -7,6 +7,7 @@ export default async function isAdmin(req, res, next) {
   if (req.user.isadmin) return next();
   return res.json({
     status: 403,
-    error: 'Unauthorized!!!. Only an admin can perform this operation'
+    error: 'Forbidden!!!. Only an admin can perform this operation'
   });
 }
+

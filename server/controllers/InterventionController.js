@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken';
 import moment from 'moment';
+import multer from 'multer';
+import path from 'path';
+import cloudinary from 'cloudinary';
 import db from '../db';
 
 import validateRedflagInput from '../validation/incident';
@@ -21,28 +24,43 @@ const IncidentController = {
       return res.status(400).json({ status: 400, errors });
     }
 
+    // let insertImage = null;
+    // if (req.files.length === 1) {
+    //   insertImage = req.files[0].url;
+    // }
+
+    let insertImage = null;
+    if (req.files.length >= 1) {
+      insertImage = [];
+      req.files.forEach(data => {
+        insertImage.push(data.url);
+      });
+      insertImage = insertImage.join();
+    }
+
     const createQuery = `INSERT INTO
       incidents(createdon, createdby, title, type, location, status, images, videos, comments)
       VALUES($1, $2, $3, $4, $5, $6, $7,$8, $9)
       returning *`;
     const values = [
-      moment(new Date()),
+      new Date().toLocaleString(),
       req.user.id,
       req.body.title,
       'intervention',
       req.body.location,
-      req.body.status,
-      req.body.images,
+      'draft',
+      insertImage,
       req.body.videos,
       req.body.comments
     ];
+
     try {
       const { rows } = await db.query(createQuery, values);
       return res.status(200).json({
-        status: 200,
+        status: 201,
         data: [
           {
-            id: rows,
+            id: rows[0].id,
             message: 'Created intervention record'
           }
         ]
@@ -116,7 +134,7 @@ const IncidentController = {
       if (!rows[0]) {
         return res.status(404).send({ message: 'intervention not found' });
       }
-      // Checking for Unauthorized Using
+      // Checking for Unauthorized User
       const token = req.headers['x-access-token'];
       const decoded = await jwt.verify(token, process.env.SECRET);
       if (decoded.id !== rows[0].createdby) {

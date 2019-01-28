@@ -1,5 +1,6 @@
 import moment from 'moment';
 import jwt from 'jsonwebtoken';
+import cloudinary from 'cloudinary';
 import db from '../db';
 
 import validateRedflagInput from '../validation/incident';
@@ -21,19 +22,28 @@ const RedflagController = {
       return res.status(400).json({ status: 400, errors });
     }
 
+    let insertImage = null;
+    if (req.files.length >= 1) {
+      insertImage = [];
+      req.files.forEach(data => {
+        insertImage.push(data.url);
+      });
+      insertImage = insertImage.join();
+    }
+
     const createQuery = `INSERT INTO
       incidents(createdOn, createdBy, title, type, location, status, images, videos, comments)
       VALUES($1, $2, $3, $4, $5, $6, $7,$8, $9)
       returning *`;
 
     const values = [
-      moment(new Date()),
+      new Date().toLocaleString(),
       req.user.id,
       req.body.title,
       'red-flag',
       req.body.location,
       req.body.status,
-      req.body.images,
+      insertImage,
       req.body.videos,
       req.body.comments
     ];
@@ -41,7 +51,7 @@ const RedflagController = {
     try {
       const { rows } = await db.query(createQuery, values);
       return res.status(200).json({
-        status: 200,
+        status: 201,
         data: [
           {
             id: rows[0].id,
@@ -65,6 +75,56 @@ const RedflagController = {
       const { rows } = await db.query(findAllQuery, ['red-flag']);
       if (rows.length === 0) {
         return res.status(400).json({ status: 400, error: 'No red-flag Found' });
+      }
+      return res.status(200).json({
+        status: 200,
+        data: rows
+      });
+    } catch (error) {
+      return res.status(400).json({ error });
+    }
+  },
+  /**
+   * Get All Redflag
+   * @param {object} req
+   * @param {object} res
+   * @returns {object}
+   */
+  async getAllUserRedflag(req, res) {
+    const findAllQuery = 'SELECT * FROM incidents WHERE type = $1 AND createdby = $2';
+    // const findAllQuery = 'SELECT * FROM incidents where type= $1';
+    try {
+      // Checking for Unauthorized User
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      const { rows } = await db.query(findAllQuery, ['red-flag', decoded.id]);
+      if (rows.length === 0) {
+        return res.status(400).json({ status: 400, error: 'No red-flag Found' });
+      }
+      return res.status(200).json({
+        status: 200,
+        data: rows
+      });
+    } catch (error) {
+      return res.status(400).json({ error });
+    }
+  },
+  /**
+   * Get All Redflag
+   * @param {object} req
+   * @param {object} res
+   * @returns {object}
+   */
+  async getAllUserIncident(req, res) {
+    const findAllQuery = 'SELECT * FROM incidents WHERE createdby = $1';
+    // const findAllQuery = 'SELECT * FROM incidents where type= $1';
+    try {
+      // Checking for Unauthorized User
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      const { rows } = await db.query(findAllQuery, [decoded.id]);
+      if (rows.length === 0) {
+        return res.status(400).json({ status: 400, error: 'No record found' });
       }
       return res.status(200).json({
         status: 200,

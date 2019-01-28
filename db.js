@@ -24,8 +24,8 @@ const createIncidentTable = () => {
         type VARCHAR(128) NOT NULL,
         location VARCHAR(128) NOT NULL,
         status VARCHAR(128) NOT NULL,
-        images TEXT NOT NULL,
-        videos TEXT NOT NULL,
+        images TEXT,
+        videos TEXT,
         comments TEXT NOT NULL
       )`;
 
