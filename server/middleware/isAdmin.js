@@ -10,3 +10,4 @@ export default async function isAdmin(req, res, next) {
     error: 'Forbidden!!!. Only an admin can perform this operation'
   });
 }
+

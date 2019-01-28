@@ -80,6 +80,7 @@ const User = {
           .status(400)
           .json({ status: 400, errors: 'The credentials you provided are incorrect' });
       }
+
       const token = Helper.generateToken(
         rows[0].id,
         rows[0].isadmin,
@@ -89,6 +90,27 @@ const User = {
       return res.status(200).json({ status: 200, data: [{ token, user: rows[0] }] });
     } catch (error) {
       return res.status(400).json({ status: 400, errors });
+    }
+  },
+  async getCurrentUser(req, res) {
+    try {
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      const text = 'SELECT * FROM users WHERE id = $1';
+      const { rows } = await db.query(text, [decoded.id]);
+
+      if (rows[0]) {
+        return res.json({
+          id: decoded.id,
+          email: decoded.email,
+          username: decoded.username,
+          firstname: rows[0].firstname,
+          lastname: rows[0].lastname,
+          number: rows[0].phonenumber
+        });
+      }
+    } catch (error) {
+      return res.status(400).json({ error });
     }
   }
 };

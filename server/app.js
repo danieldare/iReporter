@@ -2,10 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import multer from 'multer';
-import path from 'path';
 import cloudinary from 'cloudinary';
 import cloudinaryStorage from 'multer-storage-cloudinary';
-import multipath from 'connect-multiparty';
 import swaggerUI from 'swagger-ui-express';
 import dotenv from 'dotenv';
 
@@ -19,27 +17,6 @@ import doc from '../swagger.json';
 const app = express();
 
 dotenv.config();
-// const storage = multer.diskStorage({
-//   destination: '../../public/images/',
-//   filename: (req, file, callback) => {
-//     callback(
-//       null,
-//       `${file.fieldname}-${new Date().toISOString()}${path.extname(file.originalname)}`
-//     );
-//   }
-// });
-
-// const fileFilter = (req, file, cb) => {
-//   if (
-//     file.mimetype === 'image/png' ||
-//     file.mimetype === 'image/jpg' ||
-//     file.mimetype === 'image/jpeg'
-//   ) {
-//     cb(null, true);
-//   } else {
-//     cb(null, false);
-//   }
-// };
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -49,9 +26,11 @@ cloudinary.config({
 
 const storage = cloudinaryStorage({
   cloudinary,
-  folder: 'demo',
-  allowedFormats: ['jpg', 'png', 'jpeg'],
-  transformation: [{ width: 500, height: 500, crop: 'limit' }]
+  allowedFormats: ['jpg', 'svg', 'png', 'jpeg', 'gif', 'avi', 'flv', 'mpeg', '3gp', 'mp4', 'webm'],
+  params: {
+    resource_type: 'auto',
+    folder: 'iReporter/media'
+  }
 });
 
 // Body Parser middleware

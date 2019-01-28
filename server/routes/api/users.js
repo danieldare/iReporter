@@ -16,5 +16,6 @@ router.post('/signup', UserController.create);
 // @desc Login user
 // @access Public
 router.post('/login', UserController.login);
+router.get('/current', UserController.getCurrentUser);
 
 module.exports = router;

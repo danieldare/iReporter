@@ -24,17 +24,18 @@ const IncidentController = {
       return res.status(400).json({ status: 400, errors });
     }
 
-    // const storage2 = cloudinary.v2.uploader.upload(
-    //   req.files.video.path,
-    //   { resource_type: 'video' },
-    //   (error, result) => {
-    //     console.log(result, error);
-    //   }
-    // );
+    // let insertImage = null;
+    // if (req.files.length === 1) {
+    //   insertImage = req.files[0].url;
+    // }
 
     let insertImage = null;
-    if (req.files.length === 1) {
-      insertImage = req.files[0].url;
+    if (req.files.length >= 1) {
+      insertImage = [];
+      req.files.forEach(data => {
+        insertImage.push(data.url);
+      });
+      insertImage = insertImage.join();
     }
 
     const createQuery = `INSERT INTO
@@ -42,22 +43,16 @@ const IncidentController = {
       VALUES($1, $2, $3, $4, $5, $6, $7,$8, $9)
       returning *`;
     const values = [
-      moment(new Date()),
+      new Date().toLocaleString(),
       req.user.id,
       req.body.title,
       'intervention',
       req.body.location,
-      req.body.status,
+      'draft',
       insertImage,
       req.body.videos,
       req.body.comments
     ];
-
-    // if (true) {
-    //   console.log(req.files.path);
-    //   console.log(req.files.images);
-    //   console.log(req.file.path);
-    // }
 
     try {
       const { rows } = await db.query(createQuery, values);

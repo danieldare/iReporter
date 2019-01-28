@@ -24,8 +24,10 @@ router.patch(
 router.delete('/interventions/:intervention_id', Auth.verifyToken, interventionController.delete);
 
 // Redflag
-router.get('/red-flags', redflagController.getAllRedflag);
-router.get('/red-flags/:redflag_id', redflagController.getOneRedflag);
+router.get('/red-flags', Auth.verifyToken, redflagController.getAllUserRedflag);
+// router.get('/red-flags', Auth.verifyToken, redflagController.getAllRedflag);
+router.get('/red-flags/:redflag_id', Auth.verifyToken, redflagController.getOneRedflag);
+router.get('/incident', Auth.verifyToken, redflagController.getAllUserIncident);
 router.post('/red-flags', Auth.verifyToken, redflagController.create);
 router.patch(
   '/red-flags/:redflag_id/location',

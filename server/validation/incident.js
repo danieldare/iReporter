@@ -42,7 +42,7 @@ module.exports = function validateRedflagInput(data) {
     errors.status = 'Status field is required';
   }
 
-  const status = ['under-investigation', 'rejected', 'resolved'];
+  const status = ['under-investigation', 'rejected', 'resolved', 'draft'];
   if (!status.includes(data.status)) {
     errors.status = 'Status not valid!!!';
   }

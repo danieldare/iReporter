@@ -11,7 +11,7 @@ module.exports = function validateRedflagLocationInput(data) {
   }
 
   if (
-    /^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/.test(data.location)
+    !/^([-+]?)([\d]{1,2})(((\.)(\d+)(,)))(\s*)(([-+]?)([\d]{1,3})((\.)(\d+))?)$/.test(data.location)
   ) {
     errors.location = 'Location is invalid';
   }
