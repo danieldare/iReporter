@@ -24,11 +24,6 @@ const IncidentController = {
       return res.status(400).json({ status: 400, errors });
     }
 
-    // let insertImage = null;
-    // if (req.files.length === 1) {
-    //   insertImage = req.files[0].url;
-    // }
-
     let insertImage = null;
     if (req.files.length >= 1) {
       insertImage = [];
@@ -88,6 +83,30 @@ const IncidentController = {
       });
     } catch (error) {
       return res.status(400).send(error);
+    }
+  },
+  /**
+   * Get AllUser intervention
+   * @param {object} req
+   * @param {object} res
+   * @returns {object}
+   */
+  async getAllUserIntervention(req, res) {
+    const findAllQuery = 'SELECT * FROM incidents WHERE type = $1 AND createdby = $2';
+    try {
+      // Checking for Unauthorized User
+      const token = req.headers['x-access-token'];
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      const { rows } = await db.query(findAllQuery, ['intervention', decoded.id]);
+      if (rows.length === 0) {
+        return res.status(400).json({ status: 400, error: 'No Intervention Found' });
+      }
+      return res.status(200).json({
+        status: 200,
+        data: rows
+      });
+    } catch (error) {
+      return res.status(400).json({ error });
     }
   },
   /**
