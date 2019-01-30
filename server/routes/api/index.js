@@ -8,8 +8,12 @@ import AdminController from '../../controllers/AdminController';
 const router = express.Router();
 
 // Intervention
-router.get('/interventions', interventionController.getAllIntervention);
-router.get('/interventions/:intervention_id', interventionController.getOneIntervention);
+router.get('/interventions', Auth.verifyToken, interventionController.getAllUserIntervention);
+router.get(
+  '/interventions/:intervention_id',
+  Auth.verifyToken,
+  interventionController.getOneIntervention
+);
 router.post('/interventions', Auth.verifyToken, interventionController.create);
 router.patch(
   '/interventions/:intervention_id/location',
@@ -25,7 +29,6 @@ router.delete('/interventions/:intervention_id', Auth.verifyToken, interventionC
 
 // Redflag
 router.get('/red-flags', Auth.verifyToken, redflagController.getAllUserRedflag);
-// router.get('/red-flags', Auth.verifyToken, redflagController.getAllRedflag);
 router.get('/red-flags/:redflag_id', Auth.verifyToken, redflagController.getOneRedflag);
 router.get('/incident', Auth.verifyToken, redflagController.getAllUserIncident);
 router.post('/red-flags', Auth.verifyToken, redflagController.create);
