@@ -129,6 +129,58 @@ const AdminController = {
         .status(404)
         .send({ status: 404, message: 'An errror just occured! Red-flag record id not Found' });
     }
+  },
+  /**
+   * Update an status
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} intervention reponse
+   */
+  async updateAllIncidentStatus(req, res) {
+    // For validation
+    const { errors, isValid } = validateStatusInput(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      return res.status(400).json({ status: 400, errors });
+    }
+
+    const findOneQuery = 'SELECT * FROM incidents WHERE id = $1';
+    const findOneUser = 'SELECT * FROM users WHERE id = $1';
+    const updateOneQuery = `UPDATE incidents SET status = $1 WHERE id = $2 returning *`;
+    try {
+      const { rows } = await db.query(findOneQuery, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'record not found' });
+      }
+      const values = req.body.status || rows[0].status;
+      const response = await db.query(updateOneQuery, [values, req.params.id]);
+      const user = await db.query(findOneUser, [response.rows[0].createdby]);
+      const { type } = response.rows[0];
+
+      const emailPayload = {
+        firstname: user.rows[0].firstname,
+        email: user.rows[0].email,
+        status: req.body.status
+      };
+      // Sends email to User
+      await sendEmail(emailPayload);
+      // Sends Sms to User
+      sendSms(
+        `234${user.rows[0].phonenumber.slice(1)}`,
+        `Hello ${user.rows[0].firstname},  Your ${type} record status has been updated to ${
+          req.body.status
+        }`
+      );
+      return res.status(200).json({
+        status: 200,
+        data: [{ id: response.rows[0].id, message: `Updated ${type} record’s status` }]
+      });
+    } catch (err) {
+      return res
+        .status(404)
+        .send({ status: 404, message: `An errror just occured! record id not Found` });
+    }
   }
 };
 

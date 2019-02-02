@@ -10,7 +10,7 @@ module.exports = function validateStatusInput(data) {
     errors.status = 'Status field is required';
   }
 
-  const status = ['under-investigation', 'rejected', 'resolved'];
+  const status = ['draft', 'under-investigation', 'rejected', 'resolved'];
   if (!status.includes(data.status)) {
     errors.status = 'Status not valid!!!';
   }

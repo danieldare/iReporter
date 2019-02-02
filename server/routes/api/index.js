@@ -28,6 +28,7 @@ router.patch(
 router.delete('/interventions/:intervention_id', Auth.verifyToken, interventionController.delete);
 
 // Redflag
+router.get('/all-incidents', Auth.verifyToken, isAdmin, redflagController.getAll);
 router.get('/red-flags', Auth.verifyToken, redflagController.getAllUserRedflag);
 router.get('/red-flags/:redflag_id', Auth.verifyToken, redflagController.getOneRedflag);
 router.get('/incident', Auth.verifyToken, redflagController.getAllUserIncident);
@@ -42,6 +43,12 @@ router.patch(
   Auth.verifyToken,
   redflagController.updateRedflagComment
 );
+
+router.patch(
+  '/red-flags/:redflag_id/comment',
+  Auth.verifyToken,
+  redflagController.updateRedflagComment
+);
 router.delete('/red-flags/:redflag_id', Auth.verifyToken, redflagController.delete);
 
 // Admin
@@ -51,6 +58,8 @@ router.patch(
   AdminController.updateInterventionStatus
 );
 router.patch('/red-flags/:redflag_id/status', isAdmin, AdminController.updateRedflagStatus);
+router.patch('/all-incidents/:id/status', isAdmin, AdminController.updateAllIncidentStatus);
+
 router.get('/incidents', Auth.verifyToken, AdminController.getAllIncident);
 
 module.exports = router;
