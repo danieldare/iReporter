@@ -69,12 +69,12 @@ const RedflagController = {
    * @param {object} res
    * @returns {object}
    */
-  async getAllRedflag(req, res) {
-    const findAllQuery = 'SELECT * FROM incidents where type= $1';
+  async getAll(req, res) {
+    const findAllQuery = 'SELECT * FROM incidents';
     try {
-      const { rows } = await db.query(findAllQuery, ['red-flag']);
+      const { rows } = await db.query(findAllQuery);
       if (rows.length === 0) {
-        return res.status(400).json({ status: 400, error: 'No red-flag Found' });
+        return res.status(400).json({ status: 400, error: 'No record Found' });
       }
       return res.status(200).json({
         status: 200,
